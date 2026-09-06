@@ -57,12 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (questionBtn && answer) {
             questionBtn.addEventListener('click', () => {
-                const isOpen = item.classList.contains('active');
+                const isOpen = item.classList.contains('open');
                 
                 // Close other accordion items
                 faqItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
+                    if (otherItem !== item && otherItem.classList.contains('open')) {
+                        otherItem.classList.remove('open');
                         const otherAnswer = otherItem.querySelector('.faq-answer');
                         const otherBtn = otherItem.querySelector('.faq-question');
                         if (otherAnswer) otherAnswer.style.maxHeight = null;
@@ -71,15 +71,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (isOpen) {
-                    item.classList.remove('active');
+                    item.classList.remove('open');
                     answer.style.maxHeight = null;
                     questionBtn.setAttribute('aria-expanded', 'false');
                 } else {
-                    item.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    item.classList.add('open');
+                    answer.style.maxHeight = (answer.scrollHeight + 20) + 'px';
                     questionBtn.setAttribute('aria-expanded', 'true');
                 }
             });
+        }
+    });
+
+    // Recalculate max-height on resize for any open FAQ item
+    window.addEventListener('resize', () => {
+        const openItem = document.querySelector('.faq-item.open');
+        if (openItem) {
+            const answer = openItem.querySelector('.faq-answer');
+            if (answer) {
+                answer.style.maxHeight = (answer.scrollHeight + 20) + 'px';
+            }
         }
     });
 });
