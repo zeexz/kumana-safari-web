@@ -213,6 +213,13 @@ p {
     align-items: center;
 }
 
+/* iOS does not support background-attachment: fixed — falls back to scroll */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        background-attachment: scroll;
+    }
+}
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -746,4 +753,202 @@ footer {
     .booking-container { padding: 1.5rem; margin-top: -3rem; }
     .about, .fleet, .safaris, .booking, .faq { padding: 4rem 0; }
     .btn { padding: 0.7rem 1.5rem; }
+
+    /* Fix safari card grid overflow on very small screens */
+    .safari-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack phone numbers vertically with WhatsApp icons */
+    .contact-item {
+        flex-wrap: wrap;
+    }
+
+    .contact-item span {
+        word-break: break-word;
+    }
+
+    /* Smaller WhatsApp float on tiny screens */
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: 1.25rem;
+        right: 1.25rem;
+    }
+
+    .whatsapp-float svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* Touch-friendly targets for small screens */
+@media (max-width: 768px) {
+    /* Ensure background-attachment doesn't cause issues */
+    .hero {
+        background-attachment: scroll;
+    }
+
+    /* Ensure WhatsApp contact icons have adequate tap area */
+    .whatsapp-contact {
+        min-width: 44px;
+        min-height: 44px;
+        margin-left: 0.25rem;
+    }
+
+    /* Ensure booking container doesn't overflow screen */
+    .booking-container {
+        border-radius: 20px;
+    }
+
+    /* Prevent phone numbers from causing horizontal scroll */
+    .contact-item span {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    /* Reduce card image height on mobile */
+    .card-image {
+        height: 200px;
+    }
+}
+
+/* ========== Floating WhatsApp CTA ========== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: whatsapp-pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.55);
+}
+
+@keyframes whatsapp-pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+    50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.65); }
+}
+
+/* WhatsApp icon next to phone numbers */
+.whatsapp-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.35rem;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+}
+
+.whatsapp-contact:hover {
+    transform: scale(1.2);
+}
+
+.whatsapp-contact svg {
+    display: block;
+}
+
+/* ========== Form Status Messages ========== */
+.form-status {
+    margin-top: 1rem;
+    padding: 0;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.form-status.success {
+    padding: 1rem;
+    background-color: rgba(37, 211, 102, 0.1);
+    color: #1a7a3a;
+    border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.form-status.error {
+    padding: 1rem;
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #c0392b;
+    border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+/* ========== Accessibility: Visible Focus States ========== */
+*:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 3px;
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(229, 169, 61, 0.25);
+}
+
+.faq-question:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: -3px;
+    border-radius: 14px;
+}
+
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 1px;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(229, 169, 61, 0.2);
+}
+
+.nav-links a:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.hamburger:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.whatsapp-float:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+}
+
+/* ========== Hero WebP Background ========== */
+.hero {
+    background-image: url('assets/images/hero.webp');
+}
+
+/* Fallback for browsers that don't support WebP (very rare now) */
+@supports not (background-image: url('assets/images/hero.webp')) {
+    .hero {
+        background-image: url('assets/images/hero.png');
+    }
+}
+
+/* ========== Number input styling ========== */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

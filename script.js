@@ -47,28 +47,58 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', reveal);
     reveal(); // Trigger once on load
 
-    // 4. Form Submission Prevention (for demo purposes)
-    const bookingForm = document.querySelector('.booking-form');
-    if(bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
+    // 4. Booking Form — Formspree AJAX Submission
+    const bookingForm = document.getElementById('booking-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const formStatus = document.getElementById('form-status');
+
+    if (bookingForm && submitBtn && formStatus) {
+        bookingForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const btn = bookingForm.querySelector('.submit-btn');
-            const originalText = btn.textContent;
-            
-            btn.textContent = 'Sending...';
-            btn.style.backgroundColor = '#1A3626'; // primary color
-            
-            // Simulate network request
-            setTimeout(() => {
-                btn.textContent = 'Inquiry Sent!';
-                btn.style.backgroundColor = '#2c5a40';
-                bookingForm.reset();
-                
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.backgroundColor = '';
-                }, 3000);
-            }, 1500);
+
+            // Clear previous status
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+
+            // Show sending state
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+
+            try {
+                const formData = new FormData(bookingForm);
+
+                const response = await fetch(bookingForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success
+                    formStatus.textContent = '✓ Thank you! Your safari inquiry has been sent. We\'ll get back to you within 24 hours.';
+                    formStatus.className = 'form-status success';
+                    bookingForm.reset();
+                } else {
+                    // Server error
+                    const data = await response.json();
+                    const errorMsg = (data.errors && data.errors.map(err => err.message).join(', '))
+                        || 'Something went wrong. Please try again or contact us directly.';
+                    formStatus.textContent = '✗ ' + errorMsg;
+                    formStatus.className = 'form-status error';
+                }
+            } catch (error) {
+                // Network error
+                formStatus.textContent = '✗ Network error. Please check your connection and try again, or reach us on WhatsApp.';
+                formStatus.className = 'form-status error';
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '';
+            }
         });
     }
 
