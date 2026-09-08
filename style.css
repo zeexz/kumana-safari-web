@@ -1,20 +1,30 @@
+/* ========== Design Tokens ========== */
 :root {
-    --primary: #1A3626; /* Jungle Green */
-    --primary-light: #2c5a40;
-    --secondary: #E5A93D; /* Leopard Gold */
-    --secondary-hover: #c68e27;
-    --accent: #D3C4A5; /* Safari Sand */
-    --text-dark: #1a1a1a;
-    --text-light: #555555;
-    --bg-color: #F7F5F0;
-    --white: #ffffff;
-    
+    /* Brand colours */
+    --primary:          #1A3626; /* Jungle Green  */
+    --primary-light:    #2c5a40;
+    --secondary:        #E5A93D; /* Leopard Gold  */
+    --secondary-hover:  #c68e27;
+    --accent:           #D3C4A5; /* Safari Sand   */
+    --text-dark:        #1a1a1a;
+    --text-light:       #555555;
+    --bg-color:         #F7F5F0;
+    --white:            #ffffff;
+
+    /* WhatsApp green — single source of truth */
+    --whatsapp:         #25D366;
+    --whatsapp-hover:   #1da851;
+
+    /* Typography */
     --font-heading: 'Playfair Display', serif;
-    --font-body: 'Outfit', sans-serif;
-    
+    --font-body:    'Outfit', sans-serif;
+
+    /* Shared easing */
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+
+/* ========== Reset & Base ========== */
 * {
     margin: 0;
     padding: 0;
@@ -40,7 +50,8 @@ body {
     padding: 0 2rem;
 }
 
-/* Typography */
+
+/* ========== Typography ========== */
 h1, h2, h3, h4, .logo {
     font-family: var(--font-heading);
     color: var(--primary);
@@ -68,7 +79,8 @@ p {
     font-size: 1.1rem;
 }
 
-/* Buttons */
+
+/* ========== Buttons ========== */
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
@@ -115,7 +127,8 @@ p {
     color: var(--primary);
 }
 
-/* Navbar */
+
+/* ========== Navbar ========== */
 .navbar {
     position: fixed;
     top: 0;
@@ -147,14 +160,16 @@ p {
     gap: 0.3rem;
 }
 
+/* Logo colours — transparent navbar (over hero) */
 .navbar:not(.scrolled) .logo .wings,
 .navbar:not(.scrolled) .logo .roars,
 .navbar:not(.scrolled) .logo .amp {
     color: var(--white);
 }
 
+/* Logo colours — opaque scrolled navbar */
 .navbar.scrolled .logo .wings { color: var(--accent); }
-.navbar.scrolled .logo .amp { color: var(--secondary); font-size: 1.2rem; }
+.navbar.scrolled .logo .amp   { color: var(--secondary); font-size: 1.2rem; }
 .navbar.scrolled .logo .roars { color: var(--white); }
 
 .nav-links {
@@ -171,6 +186,7 @@ p {
     transition: var(--transition);
 }
 
+/* Underline hover effect */
 .nav-links a:not(.btn)::after {
     content: '';
     position: absolute;
@@ -200,11 +216,13 @@ p {
     transition: var(--transition);
 }
 
-/* Hero Section */
+
+/* ========== Hero ========== */
 .hero {
     height: 100vh;
     min-height: 600px;
-    background-image: url('assets/images/hero.png');
+    /* WebP is loaded by default; PNG fallback is in the @supports block below */
+    background-image: url('assets/images/hero.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -215,9 +233,12 @@ p {
 
 /* iOS does not support background-attachment: fixed — falls back to scroll */
 @supports (-webkit-touch-callout: none) {
-    .hero {
-        background-attachment: scroll;
-    }
+    .hero { background-attachment: scroll; }
+}
+
+/* PNG fallback for browsers that don't support WebP (very rare now) */
+@supports not (background-image: url('assets/images/hero.webp')) {
+    .hero { background-image: url('assets/images/hero.png'); }
 }
 
 .hero-overlay {
@@ -244,6 +265,11 @@ p {
     text-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+/* The subtitle line within the hero h1 */
+.hero-content h1 .hero-subtitle {
+    display: block;
+}
+
 .hero-content p {
     color: var(--white);
     font-size: 1.5rem;
@@ -252,7 +278,8 @@ p {
     max-width: 600px;
 }
 
-/* About Section */
+
+/* ========== About ========== */
 .about {
     padding: 8rem 0;
     background-color: var(--bg-color);
@@ -294,7 +321,13 @@ p {
     z-index: -1;
 }
 
-/* Fleet Images Grid */
+
+/* ========== Fleet ========== */
+.fleet {
+    padding: 8rem 0;
+    background-color: var(--white);
+}
+
 .fleet-images {
     display: flex;
     flex-direction: column;
@@ -321,14 +354,16 @@ p {
     z-index: -1;
 }
 
-/* Safaris Section */
+
+/* ========== Safaris ========== */
 .safaris {
     padding: 8rem 0;
     background-color: var(--primary);
     color: var(--white);
 }
 
-.safaris .section-title, .safaris p:not(.price) {
+.safaris .section-title,
+.safaris p:not(.price) {
     color: var(--white);
 }
 
@@ -427,7 +462,8 @@ p {
     font-weight: bold;
 }
 
-/* Booking Section */
+
+/* ========== Booking ========== */
 .booking {
     padding: 8rem 0;
     background-color: var(--accent);
@@ -467,7 +503,17 @@ p {
     color: var(--secondary);
 }
 
-/* Booking Packages (WhatsApp CTA) */
+.contact-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-item a:hover {
+    color: var(--secondary);
+}
+
+/* WhatsApp package cards */
 .booking-packages {
     display: flex;
     flex-direction: column;
@@ -503,13 +549,13 @@ p {
     border-radius: 14px;
     text-decoration: none;
     color: var(--text-dark);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: var(--transition);
     position: relative;
     overflow: hidden;
 }
 
 .whatsapp-package-card:hover {
-    border-color: #25D366;
+    border-color: var(--whatsapp);
     background: linear-gradient(135deg, rgba(37, 211, 102, 0.04), rgba(37, 211, 102, 0.08));
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(37, 211, 102, 0.15);
@@ -521,7 +567,7 @@ p {
 }
 
 .whatsapp-package-card.featured:hover {
-    border-color: #25D366;
+    border-color: var(--whatsapp);
     background: linear-gradient(135deg, rgba(37, 211, 102, 0.06), rgba(37, 211, 102, 0.12));
 }
 
@@ -579,12 +625,12 @@ p {
     font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 600;
-    color: #25D366;
+    color: var(--whatsapp);
     background: rgba(37, 211, 102, 0.08);
     padding: 0.45rem 0.9rem;
     border-radius: 50px;
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .wp-card-action svg {
@@ -592,7 +638,7 @@ p {
 }
 
 .whatsapp-package-card:hover .wp-card-action {
-    background: #25D366;
+    background: var(--whatsapp);
     color: var(--white);
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
 }
@@ -610,74 +656,25 @@ p {
     align-items: center;
     gap: 0.5rem;
     padding: 0.85rem 2rem;
-    background-color: #25D366;
+    background-color: var(--whatsapp);
     color: var(--white);
     border-radius: 50px;
     text-decoration: none;
     font-family: var(--font-body);
     font-weight: 600;
     font-size: 0.95rem;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: var(--transition);
     border: 2px solid transparent;
 }
 
 .btn-whatsapp:hover {
-    background-color: #1da851;
+    background-color: var(--whatsapp-hover);
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
 }
 
-.booking-form .form-group {
-    margin-bottom: 1.5rem;
-}
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--primary);
-}
-
-input, select {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    background: var(--bg-color);
-    transition: var(--transition);
-}
-
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--secondary);
-    box-shadow: 0 0 0 3px rgba(229, 169, 61, 0.2);
-}
-
-.submit-btn {
-    width: 100%;
-    margin-top: 1rem;
-    border: none;
-}
-
-.contact-item a {
-    color: inherit;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.contact-item a:hover {
-    color: var(--secondary);
-}
-
-/* FAQ Section */
+/* ========== FAQ ========== */
 .faq {
     padding: 7rem 0;
     background-color: var(--bg-color);
@@ -753,7 +750,10 @@ input:focus, select:focus {
     border-radius: 50%;
     background: rgba(26, 54, 38, 0.06);
     color: var(--primary);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
     flex-shrink: 0;
 }
 
@@ -775,7 +775,10 @@ input:focus, select:focus {
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
-    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.35s ease, visibility 0.35s ease;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.25s ease,
+                padding 0.35s ease,
+                visibility 0.35s ease;
     padding: 0 1.65rem;
 }
 
@@ -792,7 +795,8 @@ input:focus, select:focus {
     line-height: 1.75;
 }
 
-/* Footer */
+
+/* ========== Footer ========== */
 footer {
     background-color: var(--primary);
     color: var(--white);
@@ -811,7 +815,7 @@ footer {
 }
 
 .footer-logo .wings { color: var(--accent); }
-.footer-logo .amp { color: var(--secondary); }
+.footer-logo .amp   { color: var(--secondary); }
 .footer-logo .roars { color: var(--white); }
 
 .footer-logo p {
@@ -843,7 +847,55 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Animations */
+
+/* ========== Floating WhatsApp Button ========== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: var(--whatsapp);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: whatsapp-pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.55);
+}
+
+@keyframes whatsapp-pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+    50%       { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.65); }
+}
+
+/* Inline WhatsApp icon links (next to phone numbers) */
+.whatsapp-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.35rem;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+}
+
+.whatsapp-contact:hover {
+    transform: scale(1.2);
+}
+
+.whatsapp-contact svg {
+    display: block;
+}
+
+
+/* ========== Animations ========== */
 .fade-in-up {
     opacity: 0;
     transform: translateY(30px);
@@ -871,224 +923,6 @@ footer {
     transform: translateY(0);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .hero-content h1 { font-size: 4rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .booking-container { grid-template-columns: 1fr; gap: 2rem; margin-top: -6rem; padding: 2rem; }
-    .about, .fleet, .safaris, .booking, .faq { padding: 5rem 0; }
-}
-
-@media (max-width: 768px) {
-    .container { padding: 0 1.5rem; }
-    
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        height: 100vh;
-        background: var(--primary);
-        flex-direction: column;
-        justify-content: center;
-        transition: 0.5s ease;
-    }
-    
-    .nav-links.active {
-        right: 0;
-    }
-
-    .hamburger { display: flex; z-index: 1001; }
-    
-    .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    .hero-content h1 { font-size: 2.8rem; }
-    .hero-content p { font-size: 1.1rem; }
-    .section-title { font-size: 2.2rem; }
-    
-    .form-row { grid-template-columns: 1fr; }
-    
-    .faq { padding: 5rem 0; }
-    .faq-container { max-width: 100%; }
-    .faq-question { font-size: 0.98rem; padding: 1.15rem 1.25rem; }
-    .faq-item.open .faq-answer { padding: 0 1.25rem 1.25rem 1.25rem; }
-    .faq-answer { padding: 0 1.25rem; }
-
-    .footer-content { flex-direction: column; gap: 2rem; text-align: center; }
-    .footer-links { flex-direction: column; gap: 1rem; }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 { font-size: 2.2rem; }
-    .hero-content p { font-size: 1rem; margin-bottom: 2rem; }
-    .section-title { font-size: 1.8rem; }
-    .booking-info h2 { font-size: 2rem; }
-    .booking-container { padding: 1.5rem; margin-top: -3rem; }
-    .about, .fleet, .safaris, .booking, .faq { padding: 4rem 0; }
-    .btn { padding: 0.7rem 1.5rem; }
-
-    /* Fix safari card grid overflow on very small screens */
-    .safari-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Stack phone numbers vertically with WhatsApp icons */
-    .contact-item {
-        flex-wrap: wrap;
-    }
-
-    .contact-item span {
-        word-break: break-word;
-    }
-
-    /* WhatsApp package card mobile adjustments */
-    .whatsapp-package-card {
-        padding: 1rem;
-        gap: 0.75rem;
-    }
-
-    .wp-card-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 1.5rem;
-    }
-
-    .wp-card-info h4 {
-        font-size: 0.95rem;
-    }
-
-    .wp-card-price {
-        font-size: 1.1rem;
-    }
-
-    .wp-card-arrow {
-        display: none;
-    }
-
-    .booking-packages-title {
-        font-size: 1.4rem;
-    }
-
-    /* Smaller WhatsApp float on tiny screens */
-    .whatsapp-float {
-        width: 52px;
-        height: 52px;
-        bottom: 1.25rem;
-        right: 1.25rem;
-    }
-
-    .whatsapp-float svg {
-        width: 26px;
-        height: 26px;
-    }
-}
-
-/* Touch-friendly targets for small screens */
-@media (max-width: 768px) {
-    /* Ensure background-attachment doesn't cause issues */
-    .hero {
-        background-attachment: scroll;
-    }
-
-    /* Ensure WhatsApp contact icons have adequate tap area */
-    .whatsapp-contact {
-        min-width: 44px;
-        min-height: 44px;
-        margin-left: 0.25rem;
-    }
-
-    /* Ensure booking container doesn't overflow screen */
-    .booking-container {
-        border-radius: 20px;
-    }
-
-    /* Prevent phone numbers from causing horizontal scroll */
-    .contact-item span {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.25rem;
-    }
-
-    /* Reduce card image height on mobile */
-    .card-image {
-        height: 200px;
-    }
-}
-
-/* ========== Floating WhatsApp CTA ========== */
-.whatsapp-float {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 60px;
-    height: 60px;
-    background-color: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-    z-index: 9999;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: whatsapp-pulse 2s infinite;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.55);
-}
-
-@keyframes whatsapp-pulse {
-    0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-    50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.65); }
-}
-
-/* WhatsApp icon next to phone numbers */
-.whatsapp-contact {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 0.35rem;
-    vertical-align: middle;
-    transition: transform 0.2s ease;
-}
-
-.whatsapp-contact:hover {
-    transform: scale(1.2);
-}
-
-.whatsapp-contact svg {
-    display: block;
-}
-
-/* ========== Form Status Messages ========== */
-.form-status {
-    margin-top: 1rem;
-    padding: 0;
-    border-radius: 10px;
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.form-status.success {
-    padding: 1rem;
-    background-color: rgba(37, 211, 102, 0.1);
-    color: #1a7a3a;
-    border: 1px solid rgba(37, 211, 102, 0.3);
-}
-
-.form-status.error {
-    padding: 1rem;
-    background-color: rgba(220, 53, 69, 0.1);
-    color: #c0392b;
-    border: 1px solid rgba(220, 53, 69, 0.3);
-}
 
 /* ========== Accessibility: Visible Focus States ========== */
 *:focus-visible {
@@ -1133,19 +967,8 @@ select:focus-visible {
     outline-offset: 4px;
 }
 
-/* ========== Hero WebP Background ========== */
-.hero {
-    background-image: url('assets/images/hero.webp');
-}
 
-/* Fallback for browsers that don't support WebP (very rare now) */
-@supports not (background-image: url('assets/images/hero.webp')) {
-    .hero {
-        background-image: url('assets/images/hero.png');
-    }
-}
-
-/* ========== Number input styling ========== */
+/* ========== Number Input — Hide Spinners ========== */
 input[type="number"] {
     -moz-appearance: textfield;
 }
@@ -1154,4 +977,133 @@ input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+
+/* ========== Responsive: 992px ========== */
+@media (max-width: 992px) {
+    .hero-content h1              { font-size: 4rem; }
+    .about-grid                   { grid-template-columns: 1fr; gap: 2rem; }
+    .booking-container            { grid-template-columns: 1fr; gap: 2rem; margin-top: -6rem; padding: 2rem; }
+    .about, .fleet, .safaris,
+    .booking, .faq                { padding: 5rem 0; }
+}
+
+
+/* ========== Responsive: 768px ========== */
+@media (max-width: 768px) {
+    .container { padding: 0 1.5rem; }
+
+    /* Mobile nav — slide-in drawer */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--primary);
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.5s ease;
+    }
+
+    .nav-links.active { right: 0; }
+
+    .hamburger { display: flex; z-index: 1001; }
+
+    .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Hero */
+    .hero {
+        background-attachment: scroll; /* fixed parallax breaks on iOS/Android */
+    }
+
+    /* Typography */
+    .hero-content h1  { font-size: 2.8rem; }
+    .hero-content p   { font-size: 1.1rem; }
+    .section-title    { font-size: 2.2rem; }
+
+    /* FAQ */
+    .faq              { padding: 5rem 0; }
+    .faq-container    { max-width: 100%; }
+    .faq-question     { font-size: 0.98rem; padding: 1.15rem 1.25rem; }
+    .faq-item.open .faq-answer { padding: 0 1.25rem 1.25rem 1.25rem; }
+    .faq-answer       { padding: 0 1.25rem; }
+
+    /* Booking */
+    .booking-container { border-radius: 20px; }
+
+    /* Ensure WhatsApp contact icons have adequate tap area */
+    .whatsapp-contact {
+        min-width: 44px;
+        min-height: 44px;
+        margin-left: 0.25rem;
+    }
+
+    /* Prevent phone numbers from causing horizontal scroll */
+    .contact-item span {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.25rem;
+        word-break: break-word;
+    }
+
+    /* Reduce card image height on mobile */
+    .card-image { height: 200px; }
+
+    /* Footer */
+    .footer-content { flex-direction: column; gap: 2rem; text-align: center; }
+    .footer-links   { flex-direction: column; gap: 1rem; }
+}
+
+
+/* ========== Responsive: 480px ========== */
+@media (max-width: 480px) {
+    .hero-content h1      { font-size: 2.2rem; }
+    .hero-content p       { font-size: 1rem; margin-bottom: 2rem; }
+    .section-title        { font-size: 1.8rem; }
+    .booking-info h2      { font-size: 2rem; }
+    .booking-container    { padding: 1.5rem; margin-top: -3rem; }
+    .about, .fleet,
+    .safaris, .booking,
+    .faq                  { padding: 4rem 0; }
+    .btn                  { padding: 0.7rem 1.5rem; }
+
+    /* Safari cards stack vertically on very small screens */
+    .safari-grid          { grid-template-columns: 1fr; }
+
+    /* Stack phone numbers vertically with WhatsApp icons */
+    .contact-item         { flex-wrap: wrap; }
+
+    /* WhatsApp package card adjustments */
+    .whatsapp-package-card {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+    .wp-card-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.5rem;
+    }
+
+    .wp-card-info h4      { font-size: 0.95rem; }
+
+    .booking-packages-title { font-size: 1.4rem; }
+
+    /* Smaller floating WhatsApp button on tiny screens */
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: 1.25rem;
+        right: 1.25rem;
+    }
+
+    .whatsapp-float svg {
+        width: 26px;
+        height: 26px;
+    }
 }

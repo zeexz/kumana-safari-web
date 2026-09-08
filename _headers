@@ -1,0 +1,41 @@
+/*
+  # HTTP Security Headers
+  # These are enforced at the network level (stronger than meta-tag fallbacks in HTML).
+
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://kwroars.com data: blob:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';
+
+  # Force HTTPS for 1 year, include subdomains, opt into HSTS preload list
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Prevent MIME-type sniffing
+  X-Content-Type-Options: nosniff
+
+  # Prevent clickjacking
+  X-Frame-Options: DENY
+
+  # Control referrer information sent to third parties
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Disable browser APIs that are not needed by this site
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()
+
+  # Remove server information from responses
+  X-Powered-By:
+
+# Cache static assets aggressively (images, fonts, CSS, JS)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Never cache HTML -- always serve fresh
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/
+  Cache-Control: no-cache, no-store, must-revalidate

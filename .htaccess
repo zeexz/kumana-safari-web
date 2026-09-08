@@ -1,0 +1,67 @@
+# ============================================================
+# Security Headers -- Apache .htaccess
+# ============================================================
+
+<IfModule mod_headers.c>
+    # --- Content Security Policy ---
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://kwroars.com data: blob:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
+
+    # --- Force HTTPS (HSTS) ---
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # --- Prevent MIME-type sniffing ---
+    Header always set X-Content-Type-Options "nosniff"
+
+    # --- Prevent clickjacking ---
+    Header always set X-Frame-Options "DENY"
+
+    # --- Control referrer information ---
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # --- Disable unnecessary browser APIs ---
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+
+    # --- Hide server technology info ---
+    Header unset X-Powered-By
+    Header always unset Server
+</IfModule>
+
+# ============================================================
+# Force HTTPS Redirect
+# ============================================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ============================================================
+# Cache Control
+# ============================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Static assets -- cache for 1 year
+    ExpiresByType image/webp           "access plus 1 year"
+    ExpiresByType image/jpeg           "access plus 1 year"
+    ExpiresByType image/png            "access plus 1 year"
+    ExpiresByType image/svg+xml        "access plus 1 year"
+    ExpiresByType image/x-icon         "access plus 1 year"
+    ExpiresByType text/css             "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType font/woff2           "access plus 1 year"
+
+    # HTML -- never cache
+    ExpiresByType text/html            "access plus 0 seconds"
+</IfModule>
+
+# ============================================================
+# Deny access to sensitive files
+# ============================================================
+<FilesMatch "(^\.git|\.gitignore|\.env|composer\.lock|package\.json|package-lock\.json)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
