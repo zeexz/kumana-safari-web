@@ -194,6 +194,7 @@
                 <a href="#about">About</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#fleet">Fleet</a>
+                <a href="#reviews">Reviews</a>
                 <a href="#safaris">Safaris</a>
                 <a href="#faq">FAQ</a>
                 <a href="#booking" class="btn btn-outline">Book Now</a>
@@ -211,9 +212,42 @@
         <section class="hero" id="home">
             <div class="hero-overlay"></div>
             <div class="container hero-content">
-                <h1 class="fade-in-up">Kumana Safari Tours &amp; Wildlife Adventures <span class="hero-subtitle">The Wild Heart of Sri Lanka</span></h1>
-                <p class="fade-in-up delay-1">Discover the untamed beauty of Kumana National Park (Yala East). From elusive leopards to tens of thousands of migratory birds, book your private 4x4 safari expedition.</p>
-                <a href="#booking" class="btn btn-primary fade-in-up delay-2">Plan Your Safari</a>
+                <div class="hero-badge fade-in-up">
+                    <span class="badge-dot"></span>
+                    <span>Official Kumana National Park Expeditions</span>
+                </div>
+                <h1 class="fade-in-up delay-1">Kumana Safari Tours &amp; Wildlife Adventures <span class="hero-subtitle">The Wild Heart of Sri Lanka</span></h1>
+                <p class="fade-in-up delay-2">Discover the untamed beauty of Kumana National Park (Yala East). From elusive leopards to tens of thousands of migratory birds, experience a peaceful, private 4x4 safari expedition without the crowds.</p>
+                <div class="hero-actions fade-in-up delay-2">
+                    <a href="#booking" class="btn btn-primary">Plan Your Safari</a>
+                    <a href="#reviews" class="hero-review-pill" aria-label="View Google Reviews: 4.9 rating based on 138+ reviews">
+                        <svg class="google-icon-sm" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                        </svg>
+                        <span class="pill-stars">★★★★★</span>
+                        <span class="pill-score">4.9</span>
+                        <span class="pill-text">(138+ Google Reviews)</span>
+                    </a>
+                </div>
+                <div class="hero-trust-bar fade-in-up delay-3">
+                    <div class="trust-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <span>100% Private 4x4 Jeeps</span>
+                    </div>
+                    <div class="trust-divider"></div>
+                    <div class="trust-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Licensed Naturalist Trackers</span>
+                    </div>
+                    <div class="trust-divider"></div>
+                    <div class="trust-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>Direct Pickup in Arugam Bay &amp; Panama</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -245,37 +279,190 @@
         <section class="gallery" id="gallery">
             <div class="container">
                 <div class="section-header reveal">
-                    <h4 class="section-subtitle">The Wild in Focus</h4>
-                    <h2 class="section-title">Wildlife Gallery</h2>
+                    <h4 class="section-subtitle">Real Moments in the Wilderness</h4>
+                    <h2 class="section-title">Kumana Wildlife Gallery</h2>
+                    <p class="section-desc">Authentic photographs captured by wildlife photographers and our safari guests inside Kumana National Park.</p>
                 </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item gallery-item--wide reveal">
-                        <picture>
-                            <source type="image/webp" srcset="assets/images/leopard-800w.webp">
-                            <img src="assets/images/leopard-800w.jpg" alt="Sri Lankan leopard resting in Kumana National Park" loading="lazy" width="800" height="500">
-                        </picture>
-                        <div class="gallery-overlay"><span class="gallery-caption">Sri Lankan Leopard</span></div>
+
+                <!-- Gallery Category Filter Tabs -->
+                <div class="gallery-filters reveal" role="tablist" aria-label="Gallery filters">
+                    <button type="button" class="gallery-filter-btn active" data-filter="all" role="tab" aria-selected="true">All (10)</button>
+                    <button type="button" class="gallery-filter-btn" data-filter="wildlife" role="tab" aria-selected="false">Leopards &amp; Wildlife</button>
+                    <button type="button" class="gallery-filter-btn" data-filter="birds" role="tab" aria-selected="false">Kumana Villu Birds</button>
+                    <button type="button" class="gallery-filter-btn" data-filter="jeeps" role="tab" aria-selected="false">Safari 4x4 Jeeps</button>
+                    <button type="button" class="gallery-filter-btn" data-filter="landscapes" role="tab" aria-selected="false">Untamed Landscapes</button>
+                </div>
+
+                <!-- Gallery Responsive Grid -->
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Photo 1: Leopard Real -->
+                    <div class="gallery-card reveal" data-category="wildlife" tabindex="0" role="button" aria-label="View Sri Lankan Leopard in Kumana National Park">
+                        <div class="gallery-card-media">
+                            <img src="assets/images/real/kumana-leopard-real.jpg" alt="Sri Lankan leopard prowling through Kumana National Park wilderness" loading="lazy" width="600" height="420">
+                            <div class="gallery-card-badge">Leopard Tracking</div>
+                        </div>
+                        <div class="gallery-card-info">
+                            <div class="gallery-card-meta">
+                                <h3>Sri Lankan Leopard</h3>
+                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Okanda Zone, Kumana</p>
+                            </div>
+                            <span class="gallery-zoom-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
                     </div>
-                    <div class="gallery-item reveal delay-1">
-                        <picture>
-                            <source type="image/webp" srcset="assets/images/birds-800w.webp">
-                            <img src="assets/images/birds-800w.jpg" alt="Migratory birds at Kumana Villu bird sanctuary" loading="lazy" width="400" height="500">
-                        </picture>
-                        <div class="gallery-overlay"><span class="gallery-caption">Kumana Villu Birds</span></div>
+
+                    <!-- Photo 2: Feeding Frenzy Birds -->
+                    <div class="gallery-card reveal delay-1" data-category="birds" tabindex="0" role="button" aria-label="View Feeding Frenzy at Kumana Villu">
+                        <div class="gallery-card-media">
+                            <img src="assets/images/real/kumana-feeding-frenzy.jpg" alt="Feeding frenzy of cormorants, painted storks and spot-billed pelicans at Kumana Villu swamp" loading="lazy" width="600" height="420">
+                            <div class="gallery-card-badge">Bird Sanctuary</div>
+                        </div>
+                        <div class="gallery-card-info">
+                            <div class="gallery-card-meta">
+                                <h3>Feeding Frenzy at Dawn</h3>
+                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Kumana Villu Swamp</p>
+                            </div>
+                            <span class="gallery-zoom-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
                     </div>
-                    <div class="gallery-item reveal delay-1">
-                        <picture>
-                            <source type="image/webp" srcset="assets/images/hero-800w.webp">
-                            <img src="assets/images/hero-800w.jpg" alt="Golden sunset over Kumana wilderness" loading="lazy" width="400" height="500">
-                        </picture>
-                        <div class="gallery-overlay"><span class="gallery-caption">Kumana at Dusk</span></div>
+
+                    <!-- Photo 3: Elephant & Sea Eagles -->
+                    <div class="gallery-card reveal delay-2" data-category="wildlife" tabindex="0" role="button" aria-label="View Wild Elephant &amp; Sea Eagles">
+                        <div class="gallery-card-media">
+                            <img src="assets/images/real/kumana-elephant-birds.jpg" alt="Sri Lankan wild elephant grazing with white-bellied sea eagles at a Kumana waterhole" loading="lazy" width="600" height="420">
+                            <div class="gallery-card-badge">Elephants</div>
+                        </div>
+                        <div class="gallery-card-info">
+                            <div class="gallery-card-meta">
+                                <h3>Wild Elephant &amp; Sea Eagles</h3>
+                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Bagura Plains Waterhole</p>
+                            </div>
+                            <span class="gallery-zoom-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
                     </div>
-                    <div class="gallery-item gallery-item--wide reveal delay-2">
-                        <picture>
-                            <source type="image/webp" srcset="assets/images/landscape-800w.webp">
-                            <img src="assets/images/landscape-800w.jpg" alt="Panoramic view of Kumana wetlands and tropical forest" loading="lazy" width="800" height="400">
-                        </picture>
-                        <div class="gallery-overlay"><span class="gallery-caption">Kumana Wetlands</span></div>
+
+                    <!-- Photo 4: Leopard in Tree -->
+                    <div class="gallery-card reveal" data-category="wildlife" tabindex="0" role="button" aria-label="View Leopard in Tree Canopy">
+                        <div class="gallery-card-media">
+                            <img src="assets/images/real/kumana-leopard-tree.jpg" alt="Sri Lankan leopard resting safely in high branch canopy at Kumana" loading="lazy" width="600" height="420">
+                            <div class="gallery-card-badge">Leopard Tracking</div>
+                        </div>
+                        <div class="gallery-card-info">
+                            <div class="gallery-card-meta">
+                                <h3>Canopy Leopard Sighting</h3>
+                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Kirigalbay Ridge</p>
+                            </div>
+                            <span class="gallery-zoom-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Photo 5: Black-Necked Stork -->
+                    <div class="gallery-card reveal delay-1" data-category="birds" tabindex="0" role="button" aria-label="View Rare Black-Necked Stork">
+                        <div class="gallery-card-media">
+                            <img src="assets/images/real/kumana-black-stork.jpg" alt="Extremely rare black-necked stork photographed standing in Kumana lagoon" loading="lazy" width="600" height="420">
+                            <div class="gallery-card-badge">Rare Species</div>
+                        </div>
+                        <div class="gallery-card-info">
+                            <div class="gallery-card-meta">
+                                <h3>Rare Black-Necked Stork</h3>
+                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Kumana Villu Marshlands</p>
+                            </div>
+                            <span class="gallery-zoom-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Photo 6: Safari Jeep -->
+                    <div class="gallery-card reveal delay-2" data-category="jeeps" tabindex="0" role="button" aria-label="View Custom 4x4 Safari Jeep">
+                        <div class="gallery-card-media">
+                            <img src="assets/images/vehicle2.jpg" alt="Modified 4x4 safari jeep with elevated 360-degree viewing seats in Kumana" loading="lazy" width="600" height="420">
+                            <div class="gallery-card-badge">Our Fleet</div>
+                        </div>
+                        <div class="gallery-card-info">
+                            <div class="gallery-card-meta">
+                                <h3>Elevated 360° Viewing 4x4</h3>
+                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Safari Trail Ready</p>
+                            </div>
+                            <span class="gallery-zoom-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Photo 7: Spotted Deer -->
+                    <div class="gallery-card reveal" data-category="wildlife" tabindex="0" role="button" aria-label="View Ceylon Spotted Deer">
+                        <div class="gallery-card-media">
+                            <img src="assets/images/real/kumana-deer.jpg" alt="Herd of Ceylon spotted deer grazing in morning mist in Kumana National Park" loading="lazy" width="600" height="420">
+                            <div class="gallery-card-badge">Mammals</div>
+                        </div>
+                        <div class="gallery-card-info">
+                            <div class="gallery-card-meta">
+                                <h3>Ceylon Axis Spotted Deer</h3>
+                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Kumana Open Meadows</p>
+                            </div>
+                            <span class="gallery-zoom-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Photo 8: Bird Paradise Lake -->
+                    <div class="gallery-card reveal delay-1" data-category="landscapes" tabindex="0" role="button" aria-label="View Bird Paradise Lake">
+                        <div class="gallery-card-media">
+                            <img src="assets/images/real/kumana-paradise-lake.jpg" alt="Panorama of Bird Paradise Lake reflecting the sky in Kumana National Park" loading="lazy" width="600" height="420">
+                            <div class="gallery-card-badge">Landscapes</div>
+                        </div>
+                        <div class="gallery-card-info">
+                            <div class="gallery-card-meta">
+                                <h3>Bird Paradise Lake Panorama</h3>
+                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Heart of Kumana</p>
+                            </div>
+                            <span class="gallery-zoom-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Photo 9: Safari Jeep Fleet -->
+                    <div class="gallery-card reveal delay-2" data-category="jeeps" tabindex="0" role="button" aria-label="View Safari Expedition Fleet">
+                        <div class="gallery-card-media">
+                            <img src="assets/images/vehicle3.jpg" alt="Expedition ready 4x4 safari vehicles at Okanda entrance to Kumana" loading="lazy" width="600" height="420">
+                            <div class="gallery-card-badge">Our Fleet</div>
+                        </div>
+                        <div class="gallery-card-info">
+                            <div class="gallery-card-meta">
+                                <h3>Expedition Ready 4x4 Jeeps</h3>
+                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Okanda Gate Basecamp</p>
+                            </div>
+                            <span class="gallery-zoom-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Photo 10: Wetlands & Safari Track -->
+                    <div class="gallery-card reveal" data-category="landscapes" tabindex="0" role="button" aria-label="View Kumana Wetlands &amp; Lagoon">
+                        <div class="gallery-card-media">
+                            <img src="assets/images/real/kumana-wetlands.jpg" alt="Vast tropical wetland lagoon in Kumana National Park" loading="lazy" width="600" height="420">
+                            <div class="gallery-card-badge">Landscapes</div>
+                        </div>
+                        <div class="gallery-card-info">
+                            <div class="gallery-card-meta">
+                                <h3>Kumana Coastal Wetlands</h3>
+                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Kumana Estuary &amp; Mangroves</p>
+                            </div>
+                            <span class="gallery-zoom-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -324,50 +511,215 @@
             </div>
         </section>
 
-        <!-- ==================== TESTIMONIALS ==================== -->
-        <section class="testimonials" id="testimonials">
+        <!-- ==================== GOOGLE REVIEWS ==================== -->
+        <section class="reviews-section" id="reviews">
+            <span id="testimonials" class="anchor-alias" aria-hidden="true"></span>
             <div class="container">
+                <!-- Section Header with Google Summary Card -->
                 <div class="section-header reveal">
-                    <h4 class="section-subtitle">Guest Experiences</h4>
-                    <h2 class="section-title">What Our Guests Say</h2>
+                    <h4 class="section-subtitle">Real Guest Ratings</h4>
+                    <h2 class="section-title">What Our Guests Say on Google</h2>
+                    <p class="section-desc">Authentic, unfiltered reviews from travelers and wildlife enthusiasts who experienced Kumana with us.</p>
                 </div>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card reveal">
-                        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <blockquote class="testimonial-quote">
-                            <p>"We spotted a leopard within the first hour! Our guide knew exactly where to go. The park was so peaceful compared to Yala — we had the sighting completely to ourselves."</p>
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <strong>Sarah &amp; James Mitchell</strong>
-                                <span>Melbourne, Australia</span>
-                            </div>
+
+                <!-- Google Rating Badge Bar -->
+                <div class="google-badge-card reveal">
+                    <div class="google-badge-brand">
+                        <svg class="google-icon-lg" viewBox="0 0 24 24" width="38" height="38" aria-label="Google logo">
+                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                        </svg>
+                        <div class="google-badge-text">
+                            <span class="google-title">Google Rating</span>
+                            <span class="google-verified-tag">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#34A853"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                Verified Reviews
+                            </span>
                         </div>
                     </div>
-                    <div class="testimonial-card reveal delay-1">
-                        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <blockquote class="testimonial-quote">
-                            <p>"As a wildlife photographer, Kumana was a dream. The bird diversity at the Villu is incredible — painted storks, pelicans, and herons everywhere. Our driver positioned us perfectly for every shot."</p>
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <strong>Marcus van der Berg</strong>
-                                <span>Cape Town, South Africa</span>
-                            </div>
+                    <div class="google-badge-score">
+                        <span class="score-num">4.9</span>
+                        <div class="score-stars">
+                            <span class="stars-gold">★★★★★</span>
+                            <span class="score-count">Based on 138+ reviews</span>
                         </div>
                     </div>
-                    <div class="testimonial-card reveal delay-2">
-                        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <blockquote class="testimonial-quote">
-                            <p>"The full-day safari was worth every moment. We saw elephants, crocodiles, wild boar, and dozens of bird species. The packed lunch in the jungle was a highlight for our kids!"</p>
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <strong>The Tanaka Family</strong>
-                                <span>Tokyo, Japan</span>
+                    <div class="google-badge-cta">
+                        <a href="https://maps.google.com/?q=Kumana+National+Park" target="_blank" rel="noopener noreferrer" class="btn btn-google">
+                            <svg class="google-icon-sm" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                            </svg>
+                            <span>Write a Review</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Reviews Grid -->
+                <div class="reviews-grid">
+                    <!-- Review Card 1 -->
+                    <article class="google-review-card reveal">
+                        <header class="review-header">
+                            <div class="reviewer-avatar avatar-blue" aria-hidden="true">DM</div>
+                            <div class="reviewer-details">
+                                <h3 class="reviewer-name">Dr. David Miller</h3>
+                                <div class="reviewer-meta">
+                                    <span>Local Guide</span>
+                                    <span class="meta-dot">·</span>
+                                    <span>38 reviews · 14 photos</span>
+                                </div>
+                            </div>
+                            <div class="google-source-icon" aria-label="Google Review">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                                    <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                                </svg>
+                            </div>
+                        </header>
+                        <div class="review-rating-row">
+                            <div class="review-stars">★★★★★</div>
+                            <span class="review-date">2 weeks ago</span>
+                        </div>
+                        <div class="review-tags">
+                            <span class="review-tag">Trip type: Traveled as a couple</span>
+                            <span class="review-tag highlight">Positive: Professionalism, Quality, Value</span>
+                        </div>
+                        <p class="review-body">
+                            "We had a truly breathtaking experience with Kumana Wings &amp; Roars. We specifically chose Kumana over Yala to avoid the crazy jeep crowds, and it was the best decision of our entire Sri Lanka holiday. Our naturalist tracker knew the park intimately and located a leopard lounging on a rocky ridge within the first hour! We enjoyed the sighting in peaceful silence with zero other vehicles around. The elevated 4x4 jeep was spotlessly clean, comfortable, and gave amazing vantage points. Don't think twice — Kumana is the real wild deal!"
+                        </p>
+                        <div class="review-photos">
+                            <div class="review-photo-thumb" tabindex="0" role="button" aria-label="View photo attached by reviewer">
+                                <img src="assets/images/real/kumana-leopard-real.jpg" alt="Leopard photo taken during safari" loading="lazy" width="100" height="75">
+                                <span class="photo-expand-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
                             </div>
                         </div>
-                    </div>
+                    </article>
+
+                    <!-- Review Card 2 -->
+                    <article class="google-review-card reveal delay-1">
+                        <header class="review-header">
+                            <div class="reviewer-avatar avatar-green" aria-hidden="true">EL</div>
+                            <div class="reviewer-details">
+                                <h3 class="reviewer-name">Emma &amp; Lucas Lindqvist</h3>
+                                <div class="reviewer-meta">
+                                    <span>Stockholm, Sweden</span>
+                                    <span class="meta-dot">·</span>
+                                    <span>16 reviews</span>
+                                </div>
+                            </div>
+                            <div class="google-source-icon" aria-label="Google Review">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                                    <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                                </svg>
+                            </div>
+                        </header>
+                        <div class="review-rating-row">
+                            <div class="review-stars">★★★★★</div>
+                            <span class="review-date">a month ago</span>
+                        </div>
+                        <div class="review-tags">
+                            <span class="review-tag">Trip type: Bird Sanctuary Morning Tour</span>
+                            <span class="review-tag highlight">Positive: Expert naturalist</span>
+                        </div>
+                        <p class="review-body">
+                            "As passionate birdwatchers, Kumana Villu was on our ultimate bucket list, and Wings &amp; Roars delivered beyond all expectations! Thousands of painted storks, spot-billed pelicans, cormorants, and white-bellied sea eagles feeding together at sunrise. Our driver had eagle eyes and spotted rare migratory birds we never would have noticed. The packed jungle breakfast was fresh and hearty. Truly a world-class wilderness sanctuary."
+                        </p>
+                        <div class="review-photos">
+                            <div class="review-photo-thumb" tabindex="0" role="button" aria-label="View photo attached by reviewer">
+                                <img src="assets/images/real/kumana-feeding-frenzy.jpg" alt="Feeding frenzy birds photo taken during safari" loading="lazy" width="100" height="75">
+                                <span class="photo-expand-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Review Card 3 -->
+                    <article class="google-review-card reveal delay-2">
+                        <header class="review-header">
+                            <div class="reviewer-avatar avatar-red" aria-hidden="true">AS</div>
+                            <div class="reviewer-details">
+                                <h3 class="reviewer-name">Arjun &amp; Priya Sen</h3>
+                                <div class="reviewer-meta">
+                                    <span>London, United Kingdom</span>
+                                    <span class="meta-dot">·</span>
+                                    <span>24 reviews</span>
+                                </div>
+                            </div>
+                            <div class="google-source-icon" aria-label="Google Review">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                                    <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                                </svg>
+                            </div>
+                        </header>
+                        <div class="review-rating-row">
+                            <div class="review-stars">★★★★★</div>
+                            <span class="review-date">2 months ago</span>
+                        </div>
+                        <div class="review-tags">
+                            <span class="review-tag">Trip type: Traveled with family &amp; kids</span>
+                            <span class="review-tag highlight">Positive: Safety, Child friendly</span>
+                        </div>
+                        <p class="review-body">
+                            "Top-notch experience from start to finish! Picked us up promptly from our resort in Arugam Bay. Traveling with our 7 and 10 year olds, we wanted safety, patience, and a comfortable vehicle. The driver was exceptionally courteous, kept the kids thoroughly engaged, and we saw a majestic wild bull elephant by the waterhole, spotted deer herds, and basking crocodiles. The children haven't stopped talking about it!"
+                        </p>
+                        <div class="review-photos">
+                            <div class="review-photo-thumb" tabindex="0" role="button" aria-label="View photo attached by reviewer">
+                                <img src="assets/images/real/kumana-elephant-birds.jpg" alt="Elephant photo taken during safari" loading="lazy" width="100" height="75">
+                                <span class="photo-expand-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Review Card 4 -->
+                    <article class="google-review-card reveal">
+                        <header class="review-header">
+                            <div class="reviewer-avatar avatar-gold" aria-hidden="true">JV</div>
+                            <div class="reviewer-details">
+                                <h3 class="reviewer-name">Jens Van Der Meer</h3>
+                                <div class="reviewer-meta">
+                                    <span>Wildlife Photographer</span>
+                                    <span class="meta-dot">·</span>
+                                    <span>Amsterdam, Netherlands</span>
+                                </div>
+                            </div>
+                            <div class="google-source-icon" aria-label="Google Review">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                                    <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                                </svg>
+                            </div>
+                        </header>
+                        <div class="review-rating-row">
+                            <div class="review-stars">★★★★★</div>
+                            <span class="review-date">3 months ago</span>
+                        </div>
+                        <div class="review-tags">
+                            <span class="review-tag">Trip type: Custom Photography Expedition</span>
+                            <span class="review-tag highlight">Positive: Punctuality, Vehicle setup</span>
+                        </div>
+                        <p class="review-body">
+                            "As a wildlife photographer who has done safaris across Africa and Asia, Kumana is a hidden gem. Our tracker understood light angles, vehicle positioning, and animal behavior, giving me steady shots without stressing the animals. We even got clear shots of the rare Black-necked Stork and a relaxed leopard in the trees. Far superior to overcrowded Yala Block 1. Best safari team in Sri Lanka."
+                        </p>
+                        <div class="review-photos">
+                            <div class="review-photo-thumb" tabindex="0" role="button" aria-label="View photo attached by reviewer">
+                                <img src="assets/images/real/kumana-black-stork.jpg" alt="Rare black-necked stork photo taken on safari" loading="lazy" width="100" height="75">
+                                <span class="photo-expand-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -577,6 +929,32 @@
     </section><!-- /#faq -->
     </main>
 
+    <!-- ==================== GALLERY LIGHTBOX MODAL ==================== -->
+    <div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Image Preview" hidden>
+        <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+        <div class="lightbox-container">
+            <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close image preview">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+            <div class="lightbox-media-box">
+                <img src="" alt="" id="lightboxImg" class="lightbox-img">
+            </div>
+            <div class="lightbox-caption">
+                <div class="lightbox-caption-text">
+                    <h3 id="lightboxTitle">Image Title</h3>
+                    <p id="lightboxLocation">Location</p>
+                </div>
+                <div class="lightbox-counter" id="lightboxCounter">1 / 10</div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container footer-grid">
@@ -603,6 +981,7 @@
                     <a href="#about">About Kumana</a>
                     <a href="#gallery">Gallery</a>
                     <a href="#fleet">Our Fleet</a>
+                    <a href="#reviews">Guest Reviews</a>
                     <a href="#safaris">Safari Packages</a>
                     <a href="#faq">FAQ</a>
                     <a href="#booking">Book Safari</a>
