@@ -102,4 +102,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (answer) answer.style.maxHeight = `${answer.scrollHeight + 20}px`;
     });
 
+
+    // ── 6. Back to Top Button ────────────────────────────────────────────────
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        backToTopBtn.classList.toggle('visible', window.scrollY > window.innerHeight);
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
 });

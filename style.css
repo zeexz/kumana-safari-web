@@ -1,23 +1,26 @@
 /* ========== Design Tokens ========== */
 :root {
     /* Brand colours */
-    --primary:          #1A3626; /* Jungle Green  */
-    --primary-light:    #2c5a40;
-    --secondary:        #E5A93D; /* Leopard Gold  */
-    --secondary-hover:  #c68e27;
-    --accent:           #D3C4A5; /* Safari Sand   */
-    --text-dark:        #1a1a1a;
-    --text-light:       #555555;
-    --bg-color:         #F7F5F0;
-    --white:            #ffffff;
+    --primary: #1A3626;
+    /* Jungle Green  */
+    --primary-light: #2c5a40;
+    --secondary: #E5A93D;
+    /* Leopard Gold  */
+    --secondary-hover: #c68e27;
+    --accent: #D3C4A5;
+    /* Safari Sand   */
+    --text-dark: #1a1a1a;
+    --text-light: #555555;
+    --bg-color: #F7F5F0;
+    --white: #ffffff;
 
     /* WhatsApp green — single source of truth */
-    --whatsapp:         #25D366;
-    --whatsapp-hover:   #1da851;
+    --whatsapp: #25D366;
+    --whatsapp-hover: #1da851;
 
     /* Typography */
     --font-heading: 'Playfair Display', serif;
-    --font-body:    'Outfit', sans-serif;
+    --font-body: 'Outfit', sans-serif;
 
     /* Shared easing */
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -52,7 +55,11 @@ body {
 
 
 /* ========== Typography ========== */
-h1, h2, h3, h4, .logo {
+h1,
+h2,
+h3,
+h4,
+.logo {
     font-family: var(--font-heading);
     color: var(--primary);
 }
@@ -168,9 +175,18 @@ p {
 }
 
 /* Logo colours — opaque scrolled navbar */
-.navbar.scrolled .logo .wings { color: var(--accent); }
-.navbar.scrolled .logo .amp   { color: var(--secondary); font-size: 1.2rem; }
-.navbar.scrolled .logo .roars { color: var(--white); }
+.navbar.scrolled .logo .wings {
+    color: var(--accent);
+}
+
+.navbar.scrolled .logo .amp {
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+.navbar.scrolled .logo .roars {
+    color: var(--white);
+}
 
 .nav-links {
     display: flex;
@@ -233,12 +249,16 @@ p {
 
 /* iOS does not support background-attachment: fixed — falls back to scroll */
 @supports (-webkit-touch-callout: none) {
-    .hero { background-attachment: scroll; }
+    .hero {
+        background-attachment: scroll;
+    }
 }
 
 /* PNG fallback for browsers that don't support WebP (very rare now) */
 @supports not (background-image: url('assets/images/hero.webp')) {
-    .hero { background-image: url('assets/images/hero.png'); }
+    .hero {
+        background-image: url('assets/images/hero.png');
+    }
 }
 
 .hero-overlay {
@@ -247,7 +267,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(26,54,38,0.7));
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(26, 54, 38, 0.7));
 }
 
 .hero-content {
@@ -262,7 +282,7 @@ p {
     color: var(--white);
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* The subtitle line within the hero h1 */
@@ -274,7 +294,7 @@ p {
     color: var(--white);
     font-size: 1.5rem;
     margin-bottom: 2.5rem;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     max-width: 600px;
 }
 
@@ -296,7 +316,7 @@ p {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .about-image {
@@ -343,7 +363,7 @@ p {
 }
 
 .secondary-images .about-image-wrapper {
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
     overflow: hidden;
 }
@@ -392,7 +412,7 @@ p {
 .safari-card:hover {
     transform: translateY(-10px);
     background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .card-image {
@@ -477,7 +497,7 @@ p {
     background: var(--white);
     border-radius: 30px;
     padding: 4rem;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
     margin-top: -12rem;
     position: relative;
     z-index: 10;
@@ -596,7 +616,7 @@ p {
     justify-content: center;
     background: var(--white);
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .wp-card-info {
@@ -751,9 +771,9 @@ p {
     background: rgba(26, 54, 38, 0.06);
     color: var(--primary);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                background-color 0.3s ease,
-                color 0.3s ease,
-                box-shadow 0.3s ease;
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
     flex-shrink: 0;
 }
 
@@ -776,9 +796,9 @@ p {
     opacity: 0;
     visibility: hidden;
     transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.25s ease,
-                padding 0.35s ease,
-                visibility 0.35s ease;
+        opacity 0.25s ease,
+        padding 0.35s ease,
+        visibility 0.35s ease;
     padding: 0 1.65rem;
 }
 
@@ -814,12 +834,20 @@ footer {
     max-width: 300px;
 }
 
-.footer-logo .wings { color: var(--accent); }
-.footer-logo .amp   { color: var(--secondary); }
-.footer-logo .roars { color: var(--white); }
+.footer-logo .wings {
+    color: var(--accent);
+}
+
+.footer-logo .amp {
+    color: var(--secondary);
+}
+
+.footer-logo .roars {
+    color: var(--white);
+}
 
 .footer-logo p {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     margin-top: 1rem;
     font-size: 0.9rem;
 }
@@ -830,7 +858,7 @@ footer {
 }
 
 .footer-links a {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: var(--transition);
 }
@@ -842,8 +870,8 @@ footer {
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.9rem;
 }
 
@@ -872,8 +900,15 @@ footer {
 }
 
 @keyframes whatsapp-pulse {
-    0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-    50%       { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.65); }
+
+    0%,
+    100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 4px 30px rgba(37, 211, 102, 0.65);
+    }
 }
 
 /* Inline WhatsApp icon links (next to phone numbers) */
@@ -902,8 +937,13 @@ footer {
     animation: fadeInUp 1s ease forwards;
 }
 
-.delay-1 { animation-delay: 0.3s; }
-.delay-2 { animation-delay: 0.6s; }
+.delay-1 {
+    animation-delay: 0.3s;
+}
+
+.delay-2 {
+    animation-delay: 0.6s;
+}
 
 @keyframes fadeInUp {
     to {
@@ -970,6 +1010,7 @@ select:focus-visible {
 
 /* ========== Number Input — Hide Spinners ========== */
 input[type="number"] {
+    appearance: textfield;
     -moz-appearance: textfield;
 }
 
@@ -982,17 +1023,37 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* ========== Responsive: 992px ========== */
 @media (max-width: 992px) {
-    .hero-content h1              { font-size: 4rem; }
-    .about-grid                   { grid-template-columns: 1fr; gap: 2rem; }
-    .booking-container            { grid-template-columns: 1fr; gap: 2rem; margin-top: -6rem; padding: 2rem; }
-    .about, .fleet, .safaris,
-    .booking, .faq                { padding: 5rem 0; }
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .booking-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: -6rem;
+        padding: 2rem;
+    }
+
+    .about,
+    .fleet,
+    .safaris,
+    .booking,
+    .faq {
+        padding: 5rem 0;
+    }
 }
 
 
 /* ========== Responsive: 768px ========== */
 @media (max-width: 768px) {
-    .container { padding: 0 1.5rem; }
+    .container {
+        padding: 0 1.5rem;
+    }
 
     /* Mobile nav — slide-in drawer */
     .nav-links {
@@ -1007,33 +1068,72 @@ input[type="number"]::-webkit-inner-spin-button {
         transition: 0.5s ease;
     }
 
-    .nav-links.active { right: 0; }
+    .nav-links.active {
+        right: 0;
+    }
 
-    .hamburger { display: flex; z-index: 1001; }
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+    }
 
-    .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
 
     /* Hero */
     .hero {
-        background-attachment: scroll; /* fixed parallax breaks on iOS/Android */
+        background-attachment: scroll;
+        /* fixed parallax breaks on iOS/Android */
     }
 
     /* Typography */
-    .hero-content h1  { font-size: 2.8rem; }
-    .hero-content p   { font-size: 1.1rem; }
-    .section-title    { font-size: 2.2rem; }
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
 
     /* FAQ */
-    .faq              { padding: 5rem 0; }
-    .faq-container    { max-width: 100%; }
-    .faq-question     { font-size: 0.98rem; padding: 1.15rem 1.25rem; }
-    .faq-item.open .faq-answer { padding: 0 1.25rem 1.25rem 1.25rem; }
-    .faq-answer       { padding: 0 1.25rem; }
+    .faq {
+        padding: 5rem 0;
+    }
+
+    .faq-container {
+        max-width: 100%;
+    }
+
+    .faq-question {
+        font-size: 0.98rem;
+        padding: 1.15rem 1.25rem;
+    }
+
+    .faq-item.open .faq-answer {
+        padding: 0 1.25rem 1.25rem 1.25rem;
+    }
+
+    .faq-answer {
+        padding: 0 1.25rem;
+    }
 
     /* Booking */
-    .booking-container { border-radius: 20px; }
+    .booking-container {
+        border-radius: 20px;
+    }
 
     /* Ensure WhatsApp contact icons have adequate tap area */
     .whatsapp-contact {
@@ -1052,31 +1152,69 @@ input[type="number"]::-webkit-inner-spin-button {
     }
 
     /* Reduce card image height on mobile */
-    .card-image { height: 200px; }
+    .card-image {
+        height: 200px;
+    }
 
     /* Footer */
-    .footer-content { flex-direction: column; gap: 2rem; text-align: center; }
-    .footer-links   { flex-direction: column; gap: 1rem; }
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
 
 
 /* ========== Responsive: 480px ========== */
 @media (max-width: 480px) {
-    .hero-content h1      { font-size: 2.2rem; }
-    .hero-content p       { font-size: 1rem; margin-bottom: 2rem; }
-    .section-title        { font-size: 1.8rem; }
-    .booking-info h2      { font-size: 2rem; }
-    .booking-container    { padding: 1.5rem; margin-top: -3rem; }
-    .about, .fleet,
-    .safaris, .booking,
-    .faq                  { padding: 4rem 0; }
-    .btn                  { padding: 0.7rem 1.5rem; }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .booking-info h2 {
+        font-size: 2rem;
+    }
+
+    .booking-container {
+        padding: 1.5rem;
+        margin-top: -3rem;
+    }
+
+    .about,
+    .fleet,
+    .safaris,
+    .booking,
+    .faq {
+        padding: 4rem 0;
+    }
+
+    .btn {
+        padding: 0.7rem 1.5rem;
+    }
 
     /* Safari cards stack vertically on very small screens */
-    .safari-grid          { grid-template-columns: 1fr; }
+    .safari-grid {
+        grid-template-columns: 1fr;
+    }
 
     /* Stack phone numbers vertically with WhatsApp icons */
-    .contact-item         { flex-wrap: wrap; }
+    .contact-item {
+        flex-wrap: wrap;
+    }
 
     /* WhatsApp package card adjustments */
     .whatsapp-package-card {
@@ -1090,9 +1228,13 @@ input[type="number"]::-webkit-inner-spin-button {
         font-size: 1.5rem;
     }
 
-    .wp-card-info h4      { font-size: 0.95rem; }
+    .wp-card-info h4 {
+        font-size: 0.95rem;
+    }
 
-    .booking-packages-title { font-size: 1.4rem; }
+    .booking-packages-title {
+        font-size: 1.4rem;
+    }
 
     /* Smaller floating WhatsApp button on tiny screens */
     .whatsapp-float {
