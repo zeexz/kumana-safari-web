@@ -4,7 +4,7 @@
 
 <IfModule mod_headers.c>
     # --- Content Security Policy ---
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://kwroars.com data: blob:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://gokumana.com data: blob:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
 
     # --- Force HTTPS (HSTS) ---
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"

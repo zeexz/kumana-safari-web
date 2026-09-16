@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kwroars.com/sitemap.xml
+Sitemap: https://gokumana.com/sitemap.xml
