@@ -1859,6 +1859,350 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
+/* ========== Hero Tagline ========== */
+.hero-tagline {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ========== Why Kumana Section ========== */
+.why-kumana {
+    padding: 7rem 0;
+    background-color: var(--white);
+}
+
+.why-kumana .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.why-kumana .section-desc {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+}
+
+.why-kumana-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.why-kumana-card {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+    background: var(--bg-color);
+    border: 1px solid rgba(26, 54, 38, 0.08);
+    transition: var(--transition);
+}
+
+.why-kumana-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(26, 54, 38, 0.08);
+    border-color: rgba(229, 169, 61, 0.3);
+}
+
+.why-kumana-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: rgba(26, 54, 38, 0.08);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    transition: var(--transition);
+}
+
+.why-kumana-card:hover .why-kumana-icon {
+    background: var(--secondary);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.why-kumana-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+    color: var(--primary);
+}
+
+.why-kumana-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+
+/* ========== Gallery Disclaimer ========== */
+.gallery-disclaimer {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+}
+
+
+/* ========== Safari Card Enhancements ========== */
+.card-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.card-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.card-meta-tag svg {
+    color: var(--secondary);
+}
+
+.card-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+}
+
+.card-price-note {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
+/* ========== Booking Widget ========== */
+.booking-widget {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-widget-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+}
+
+.booking-widget-subtitle {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.form-group label:first-child {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--primary);
+}
+
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-dark);
+    background: var(--bg-color);
+    transition: var(--transition);
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.form-group input[type="date"]:hover,
+.form-group select:hover {
+    border-color: var(--secondary);
+}
+
+.form-group input[type="date"]:focus,
+.form-group select:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(229, 169, 61, 0.15);
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.radio-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 0.55rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    transition: var(--transition);
+    background: var(--bg-color);
+}
+
+.radio-label:hover {
+    border-color: var(--secondary);
+    background: rgba(229, 169, 61, 0.05);
+}
+
+.radio-label input[type="radio"] {
+    display: none;
+}
+
+.radio-custom {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.radio-custom::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: transparent;
+    transition: var(--transition);
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom {
+    border-color: var(--secondary);
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom::after {
+    background: var(--secondary);
+}
+
+.btn-booking-submit {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* ========== Google Reviews CTA Enhancement ========== */
+.google-badge-cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.btn-google-write {
+    background: transparent;
+    border: 1px solid #dadce0;
+}
+
+
+/* ========== Mobile Persistent CTA Bar ========== */
+.mobile-cta-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9998;
+    background: var(--whatsapp);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+    padding: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-cta-bar.visible {
+    transform: translateY(0);
+}
+
+.mobile-cta-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 1rem;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: var(--font-body);
+}
+
+
+/* ========== Footer Enhancements ========== */
+.footer-bottom-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.footer-bottom-links a {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.footer-bottom-links a:hover {
+    color: var(--secondary);
+}
+
+.footer-sep {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+}
+
+
 /* ========== Responsive: 992px ========== */
 @media (max-width: 992px) {
     .hero-content h1 {
@@ -1903,7 +2247,8 @@ input[type="number"]::-webkit-inner-spin-button {
     .gallery,
     .reviews-section,
     .booking,
-    .faq {
+    .faq,
+    .why-kumana {
         padding: 5rem 0;
     }
 }
@@ -1986,6 +2331,11 @@ input[type="number"]::-webkit-inner-spin-button {
         font-size: 1.05rem;
     }
 
+    .hero-tagline {
+        font-size: 0.95rem;
+        letter-spacing: 1.5px;
+    }
+
     .section-title {
         font-size: 2.2rem;
     }
@@ -1993,6 +2343,20 @@ input[type="number"]::-webkit-inner-spin-button {
     /* Gallery */
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Mobile CTA Bar */
+    .mobile-cta-bar {
+        display: block;
+    }
+
+    /* Offset bottom for mobile CTA bar */
+    .whatsapp-float {
+        bottom: 5rem;
+    }
+
+    .back-to-top {
+        bottom: 5rem;
     }
 
     /* Lightbox nav position on mobile */
@@ -2116,7 +2480,8 @@ input[type="number"]::-webkit-inner-spin-button {
     .gallery,
     .reviews-section,
     .booking,
-    .faq {
+    .faq,
+    .why-kumana {
         padding: 4rem 0;
     }
 

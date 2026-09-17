@@ -293,4 +293,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
+    // ── 9. Booking Widget — WhatsApp Message Generator ───────────────────────
+    const bookingForm = document.getElementById('bookingForm');
+    const bookingDateInput = document.getElementById('booking-date');
+
+    // Set minimum date to today
+    if (bookingDateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        bookingDateInput.setAttribute('min', `${yyyy}-${mm}-${dd}`);
+    }
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(bookingForm);
+            const date = formData.get('date');
+            const guests = formData.get('guests');
+            const safari = formData.get('safari');
+            const pickup = formData.get('pickup');
+
+            // Format date for human readability
+            let dateStr = 'Not specified';
+            if (date) {
+                const d = new Date(date + 'T00:00:00');
+                dateStr = d.toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+            }
+
+            // Build structured WhatsApp message
+            const message = [
+                `Hi, I'd like to book a private Kumana safari.`,
+                ``,
+                `📅 Date: ${dateStr}`,
+                `👥 Guests: ${guests}`,
+                `🌿 Safari: ${safari}`,
+                `📍 Pickup: ${pickup}`,
+                ``,
+                `Please confirm availability and rates. Thank you!`
+            ].join('\n');
+
+            const encoded = encodeURIComponent(message);
+            const waUrl = `https://wa.me/94716716802?text=${encoded}`;
+
+            window.open(waUrl, '_blank', 'noopener,noreferrer');
+        });
+    }
+
+
+    // ── 10. Mobile Persistent CTA Bar ────────────────────────────────────────
+    const mobileCta = document.getElementById('mobileCta');
+    const heroSection = document.querySelector('.hero');
+
+    if (mobileCta && heroSection) {
+        window.addEventListener('scroll', () => {
+            const heroBottom = heroSection.getBoundingClientRect().bottom;
+            mobileCta.classList.toggle('visible', heroBottom < 0);
+        });
+    }
+
 });
