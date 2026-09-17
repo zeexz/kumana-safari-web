@@ -964,6 +964,8 @@
                                 <option value="4">4 guests</option>
                                 <option value="5">5 guests</option>
                                 <option value="6">6 guests</option>
+                                <option value="7">7 guests</option>
+                                <option value="8+">8+ guests (Group / Multiple Jeeps)</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -1004,6 +1006,27 @@
                                     <span class="radio-custom"></span>
                                     Other
                                 </label>
+                            </div>
+                        </div>
+                        <div class="form-group booking-request-group">
+                            <div class="booking-request-header">
+                                <label for="booking-notes">Booking Request &amp; Special Notes <span class="optional-tag">(Optional)</span></label>
+                                <span class="booking-request-hint">Click tags or type freely</span>
+                            </div>
+                            <div class="booking-quick-chips" id="bookingQuickChips" role="group" aria-label="Quick booking request suggestions">
+                                <button type="button" class="quick-chip" data-chip="Wildlife Photography Focus" aria-pressed="false">📸 Photography Focus</button>
+                                <button type="button" class="quick-chip" data-chip="Traveling with Children" aria-pressed="false">👶 Family with Kids</button>
+                                <button type="button" class="quick-chip" data-chip="Hotel Pickup Details" aria-pressed="false">🏨 Hotel Pickup</button>
+                                <button type="button" class="quick-chip" data-chip="Early Morning Sunrise Safari" aria-pressed="false">🌅 Sunrise Safari (5:30 AM)</button>
+                                <button type="button" class="quick-chip" data-chip="Bird Watching Priority" aria-pressed="false">🦜 Bird Watching</button>
+                                <button type="button" class="quick-chip" data-chip="7 Guests Group Tour" aria-pressed="false">👥 7 Guests Group</button>
+                            </div>
+                            <div class="booking-textarea-wrap">
+                                <textarea id="booking-notes" name="notes" rows="3" class="booking-textarea" placeholder="Click any options above or type your request (e.g., hotel name for pickup, specific interests, kid ages, custom timing)..." maxlength="500"></textarea>
+                                <div class="textarea-footer">
+                                    <span class="typing-tip">💡 Click quick tags or type custom details anytime</span>
+                                    <span class="char-counter" id="bookingNotesCounter">0 / 500</span>
+                                </div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-whatsapp btn-booking-submit" id="bookingSubmit">

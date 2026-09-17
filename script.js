@@ -294,9 +294,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ── 9. Booking Widget — WhatsApp Message Generator ───────────────────────
+    // ── 9. Booking Widget — WhatsApp Message Generator & Typing Feature ─────
     const bookingForm = document.getElementById('bookingForm');
     const bookingDateInput = document.getElementById('booking-date');
+    const bookingNotes = document.getElementById('booking-notes');
+    const bookingNotesCounter = document.getElementById('bookingNotesCounter');
+    const quickChips = document.querySelectorAll('#bookingQuickChips .quick-chip');
 
     // Set minimum date to today
     if (bookingDateInput) {
@@ -305,6 +308,69 @@ document.addEventListener('DOMContentLoaded', () => {
         const mm = String(today.getMonth() + 1).padStart(2, '0');
         const dd = String(today.getDate()).padStart(2, '0');
         bookingDateInput.setAttribute('min', `${yyyy}-${mm}-${dd}`);
+    }
+
+    // Helper to update character counter
+    const updateNotesCounter = () => {
+        if (bookingNotes && bookingNotesCounter) {
+            const count = bookingNotes.value.length;
+            const max = bookingNotes.getAttribute('maxlength') || '500';
+            bookingNotesCounter.textContent = `${count} / ${max}`;
+        }
+    };
+
+    // Helper to sync chip active state based on current typed text
+    const syncChipsWithText = () => {
+        if (!bookingNotes || !quickChips.length) return;
+        const text = bookingNotes.value.toLowerCase();
+        quickChips.forEach(chip => {
+            const chipVal = (chip.getAttribute('data-chip') || '').toLowerCase();
+            const isPresent = chipVal && text.includes(chipVal);
+            chip.classList.toggle('is-active', isPresent);
+            chip.setAttribute('aria-pressed', isPresent ? 'true' : 'false');
+        });
+    };
+
+    // Interactive Click & Type suggestions for booking request
+    if (quickChips.length && bookingNotes) {
+        quickChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const chipVal = chip.getAttribute('data-chip');
+                if (!chipVal) return;
+
+                const currentText = bookingNotes.value;
+                const escaped = chipVal.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(`(^|,\\s*)${escaped}(?=\\s*(,|$))`, 'i');
+
+                if (regex.test(currentText)) {
+                    // Remove chip text if already present
+                    let newText = currentText.replace(regex, '');
+                    newText = newText.replace(/,\s*,/g, ', ').replace(/^[\s,]+/, '').replace(/[\s,]+$/, '').trim();
+                    bookingNotes.value = newText;
+                    chip.classList.remove('is-active');
+                    chip.setAttribute('aria-pressed', 'false');
+                } else {
+                    // Append chip text to existing typed notes
+                    const trimmed = currentText.trim();
+                    if (trimmed.length === 0) {
+                        bookingNotes.value = chipVal;
+                    } else {
+                        bookingNotes.value = `${trimmed}, ${chipVal}`;
+                    }
+                    chip.classList.add('is-active');
+                    chip.setAttribute('aria-pressed', 'true');
+                }
+
+                updateNotesCounter();
+                bookingNotes.focus();
+            });
+        });
+
+        // Live typing in textarea updates counter and syncs chips
+        bookingNotes.addEventListener('input', () => {
+            updateNotesCounter();
+            syncChipsWithText();
+        });
     }
 
     if (bookingForm) {
@@ -316,6 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const guests = formData.get('guests');
             const safari = formData.get('safari');
             const pickup = formData.get('pickup');
+            const notes = (formData.get('notes') || '').toString().trim();
 
             // Format date for human readability
             let dateStr = 'Not specified';
@@ -328,19 +395,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // Build structured WhatsApp message
-            const message = [
+            // Format guest count string cleanly
+            let guestStr = guests;
+            if (guests === '1') {
+                guestStr = '1 guest';
+            } else if (guests === '7') {
+                guestStr = '7 guests';
+            } else if (guests === '8+') {
+                guestStr = '8+ guests (Group / Multiple Jeeps)';
+            } else if (guests && !guests.toString().includes('guest')) {
+                guestStr = `${guests} guests`;
+            }
+
+            // Build structured WhatsApp message with custom request/notes
+            const messageLines = [
                 `Hi, I'd like to book a private Kumana safari.`,
                 ``,
                 `📅 Date: ${dateStr}`,
-                `👥 Guests: ${guests}`,
+                `👥 Guests: ${guestStr}`,
                 `🌿 Safari: ${safari}`,
-                `📍 Pickup: ${pickup}`,
-                ``,
-                `Please confirm availability and rates. Thank you!`
-            ].join('\n');
+                `📍 Pickup: ${pickup}`
+            ];
 
-            const encoded = encodeURIComponent(message);
+            if (notes) {
+                messageLines.push(`📝 Request: ${notes}`);
+            }
+
+            messageLines.push(``, `Please confirm availability and rates. Thank you!`);
+
+            const encoded = encodeURIComponent(messageLines.join('\n'));
             const waUrl = `https://wa.me/94716716802?text=${encoded}`;
 
             window.open(waUrl, '_blank', 'noopener,noreferrer');

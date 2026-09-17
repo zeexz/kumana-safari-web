@@ -38,8 +38,9 @@ This website is a modern, high-converting, mobile-first static web application e
   - **Full Day Safari (Dawn to Dusk / ~10–12 hrs)**: Deep wilderness tracking for leopards, elephants, and bears with packed breakfast and traditional Sri Lankan lunch.
 - **Dynamic WhatsApp Booking Widget**:
   - Automatically restricts past dates.
-  - Pre-fills customizable options (Date, Guests, Tour type, Hotel pickup area).
-  - Encodes the user's booking choices into a structured WhatsApp message sent directly to reservations.
+  - Pre-fills customizable options (Date, Guests including 1–7 and 8+ group tours, Tour type, Hotel pickup area).
+  - Interactive click suggestions and live typing feature for custom booking requests and special notes.
+  - Encodes the user's booking choices and typed request notes into a structured WhatsApp message sent directly to reservations.
 - **Filterable Wildlife Gallery & Lightbox**:
   - Category filters: Birds, Mammals, Landscape, Safari Jeeps.
   - Smooth fade and transition animations.
