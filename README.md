@@ -201,7 +201,6 @@ npx serve .
 - **Location**: Okanda Gate, Kumana National Park, Panama / Arugam Bay, Sri Lanka
 - **Website**: [gokumana.com](https://gokumana.com)
 - **WhatsApp**: [+94 71 671 6802](https://wa.me/94716716802) / [+94 70 170 3228](https://wa.me/94701703228)
-- **Email**: [bookings@gokumana.com](mailto:bookings@gokumana.com)
 
 ---
 *© 2026 Kumana Wings & Roars. All rights reserved.*
