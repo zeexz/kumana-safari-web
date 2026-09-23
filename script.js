@@ -1,19 +1,59 @@
+/**
+ * Kumana Safari - Main Client Application Script
+ * Orchestrates navigation state, scroll-based UI updates, gallery interactions,
+ * modal lightbox presentation, and WhatsApp booking query generation.
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ── 1. Navbar Scroll Effect ───────────────────────────────────────────────
+    /* ==========================================================================
+       Configuration & Constants
+       ========================================================================== */
+    /** Primary business WhatsApp number in international format (no leading '+') */
+    const WA_NUMBER = '94716716802';
+
+
+    /* ==========================================================================
+       Scroll State Controller
+       Batches scroll-dependent DOM updates into a single passive listener to
+       prevent layout thrashing across high-frequency scroll events.
+       ========================================================================== */
     const navbar = document.querySelector('.navbar');
+    const backToTopBtn = document.getElementById('backToTop');
+    const mobileCta    = document.getElementById('mobileCta');
+    const heroSection  = document.querySelector('.hero');
 
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
+    function onScroll() {
+        const scrollY = window.scrollY;
+
+        navbar.classList.toggle('scrolled', scrollY > 50);
+
+        if (backToTopBtn) {
+            backToTopBtn.classList.toggle('visible', scrollY > window.innerHeight);
+        }
+
+        if (mobileCta && heroSection) {
+            mobileCta.classList.toggle('visible', heroSection.getBoundingClientRect().bottom < 0);
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
 
-    // ── 2. Mobile Menu Toggle ─────────────────────────────────────────────────
+    /* ==========================================================================
+       Mobile Navigation Drawer
+       ========================================================================== */
     const hamburger  = document.querySelector('.hamburger');
     const navLinks   = document.querySelector('.nav-links');
     const navAnchors = document.querySelectorAll('.nav-links a');
 
-    /** Open / close the mobile navigation drawer. */
     function toggleMenu() {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
@@ -21,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     hamburger.addEventListener('click', toggleMenu);
 
-    // Keyboard support — activate with Enter or Space (role="button" + tabindex="0")
     hamburger.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -29,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Close the drawer when any nav link is clicked
     navAnchors.forEach((link) => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
@@ -38,26 +76,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ── 3. Scroll Reveal Animation ────────────────────────────────────────────
-    function reveal() {
-        const THRESHOLD = 100; // px from bottom of viewport before triggering
-        const reveals = document.querySelectorAll('.reveal');
+    /* ==========================================================================
+       Scroll Reveal Animations
+       Uses IntersectionObserver to trigger entry transitions on viewport entry.
+       ========================================================================== */
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -80px 0px' }
+    );
 
-        reveals.forEach((el) => {
-            if (el.getBoundingClientRect().top < window.innerHeight - THRESHOLD) {
-                el.classList.add('active');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', reveal);
-    reveal(); // trigger once on initial load
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
 
-    // ── 4. FAQ Accordion ──────────────────────────────────────────────────────
+    /* ==========================================================================
+       FAQ Accordion
+       Manages single-item expansion with dynamic scrollHeight calculation for
+       smooth CSS height transitions.
+       ========================================================================== */
     const faqItems = document.querySelectorAll('.faq-item');
 
-    /** Collapse a single FAQ item. */
     function closeFaqItem(item) {
         item.classList.remove('open');
         const answer = item.querySelector('.faq-answer');
@@ -75,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         questionBtn.addEventListener('click', () => {
             const isOpen = item.classList.contains('open');
 
-            // Collapse every other open item first
+            // Enforce single active panel
             faqItems.forEach((other) => {
                 if (other !== item && other.classList.contains('open')) {
                     closeFaqItem(other);
@@ -92,9 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
-    // ── 5. FAQ Resize Handler ─────────────────────────────────────────────────
-    // Recalculate max-height when viewport resizes so open items stay correct
+    // Recalculate expanded height when viewport width changes to prevent text clipping
     window.addEventListener('resize', () => {
         const openItem = document.querySelector('.faq-item.open');
         if (!openItem) return;
@@ -103,21 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ── 6. Back to Top Button ────────────────────────────────────────────────
-    const backToTopBtn = document.getElementById('backToTop');
-
-    if (backToTopBtn) {
-        window.addEventListener('scroll', () => {
-            backToTopBtn.classList.toggle('visible', window.scrollY > window.innerHeight);
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-
-    // ── 7. Gallery Category Filter ───────────────────────────────────────────
+    /* ==========================================================================
+       Gallery Category Filtering
+       ========================================================================== */
     const filterBtns = document.querySelectorAll('.gallery-filter-btn');
     const galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
 
@@ -125,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             const filterValue = btn.getAttribute('data-filter');
 
-            // Update active button state
             filterBtns.forEach((b) => {
                 b.classList.remove('active');
                 b.setAttribute('aria-selected', 'false');
@@ -133,14 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.add('active');
             btn.setAttribute('aria-selected', 'true');
 
-            // Filter cards with smooth opacity transition
             galleryCards.forEach((card) => {
                 const cardCategory = card.getAttribute('data-category');
                 const shouldShow = filterValue === 'all' || cardCategory === filterValue;
 
                 if (shouldShow) {
                     card.classList.remove('hidden');
-                    // Trigger reflow for animation
                     setTimeout(() => {
                         card.style.opacity = '1';
                         card.style.transform = 'translateY(0)';
@@ -157,9 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ── 8. Gallery Lightbox Modal ─────────────────────────────────────────────
+    /* ==========================================================================
+       Gallery Lightbox Modal
+       Provides modal image preview with preload states and keyboard navigation.
+       ========================================================================== */
     const lightbox = document.getElementById('galleryLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxSpinner = document.getElementById('lightboxSpinner');
     const lightboxTitle = document.getElementById('lightboxTitle');
     const lightboxLocation = document.getElementById('lightboxLocation');
     const lightboxCounter = document.getElementById('lightboxCounter');
@@ -171,7 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentLightboxList = [];
     let currentLightboxIndex = 0;
 
-    /** Open the lightbox modal with a given image item. */
     function openLightbox(list, index) {
         if (!lightbox || !list || list.length === 0) return;
         currentLightboxList = list;
@@ -179,17 +209,30 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLightboxContent();
 
         lightbox.removeAttribute('hidden');
-        // Small delay to allow transition
+        // Defer class application by a frame so CSS opacity transitions apply after unhiding
         requestAnimationFrame(() => {
             lightbox.classList.add('active');
         });
         document.body.style.overflow = 'hidden';
     }
 
-    /** Update current image, text, and counter inside the modal. */
     function updateLightboxContent() {
         const item = currentLightboxList[currentLightboxIndex];
         if (!item) return;
+
+        if (lightboxSpinner) {
+            lightboxSpinner.classList.remove('loaded');
+        }
+        lightboxImg.style.opacity = '0';
+
+        const onImgLoad = () => {
+            if (lightboxSpinner) lightboxSpinner.classList.add('loaded');
+            lightboxImg.style.opacity = '1';
+            lightboxImg.removeEventListener('load', onImgLoad);
+            lightboxImg.removeEventListener('error', onImgLoad);
+        };
+        lightboxImg.addEventListener('load', onImgLoad);
+        lightboxImg.addEventListener('error', onImgLoad);
 
         lightboxImg.src = item.src;
         lightboxImg.alt = item.title || 'Kumana Safari Photograph';
@@ -198,7 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${currentLightboxList.length}`;
     }
 
-    /** Close the lightbox modal. */
     function closeLightbox() {
         if (!lightbox) return;
         lightbox.classList.remove('active');
@@ -208,24 +250,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
-    /** Step to previous image. */
     function prevLightbox() {
         if (currentLightboxList.length <= 1) return;
         currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxList.length) % currentLightboxList.length;
         updateLightboxContent();
     }
 
-    /** Step to next image. */
     function nextLightbox() {
         if (currentLightboxList.length <= 1) return;
         currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxList.length;
         updateLightboxContent();
     }
 
-    // Attach click and keyboard handlers to all gallery cards
+    // Attach click and keyboard triggers to all visible gallery cards
     galleryCards.forEach((card) => {
         const triggerOpen = () => {
-            // Get list of all currently visible gallery cards
             const visibleCards = galleryCards.filter((c) => !c.classList.contains('hidden'));
             const cardDataList = visibleCards.map((c) => {
                 const img = c.querySelector('img');
@@ -251,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Also attach click to review photo thumbnails to preview them
+    // Support lightbox previews for guest-submitted review images
     const reviewThumbs = document.querySelectorAll('.review-photo-thumb');
     reviewThumbs.forEach((thumb) => {
         thumb.addEventListener('click', () => {
@@ -274,13 +313,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close & navigation controls
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
     if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
     if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightbox);
     if (lightboxNext) lightboxNext.addEventListener('click', nextLightbox);
 
-    // Keyboard navigation for Lightbox
     window.addEventListener('keydown', (e) => {
         if (!lightbox || lightbox.hasAttribute('hidden')) return;
 
@@ -294,14 +331,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ── 9. Booking Widget — WhatsApp Message Generator & Typing Feature ─────
+    /* ==========================================================================
+       Booking Form & WhatsApp Inquiry Generator
+       Compiles user selection, date formatting, and customizable chips into
+       a pre-filled WhatsApp message URL.
+       ========================================================================== */
     const bookingForm = document.getElementById('bookingForm');
     const bookingDateInput = document.getElementById('booking-date');
     const bookingNotes = document.getElementById('booking-notes');
     const bookingNotesCounter = document.getElementById('bookingNotesCounter');
     const quickChips = document.querySelectorAll('#bookingQuickChips .quick-chip');
 
-    // Set minimum date to today
+    // Restrict date picker to today onwards
     if (bookingDateInput) {
         const today = new Date();
         const yyyy = today.getFullYear();
@@ -310,7 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
         bookingDateInput.setAttribute('min', `${yyyy}-${mm}-${dd}`);
     }
 
-    // Helper to update character counter
     const updateNotesCounter = () => {
         if (bookingNotes && bookingNotesCounter) {
             const count = bookingNotes.value.length;
@@ -319,7 +359,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Helper to sync chip active state based on current typed text
     const syncChipsWithText = () => {
         if (!bookingNotes || !quickChips.length) return;
         const text = bookingNotes.value.toLowerCase();
@@ -331,7 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Interactive Click & Type suggestions for booking request
+    // Toggle quick chips into the freeform notes textarea
     if (quickChips.length && bookingNotes) {
         quickChips.forEach(chip => {
             chip.addEventListener('click', () => {
@@ -343,20 +382,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const regex = new RegExp(`(^|,\\s*)${escaped}(?=\\s*(,|$))`, 'i');
 
                 if (regex.test(currentText)) {
-                    // Remove chip text if already present
                     let newText = currentText.replace(regex, '');
                     newText = newText.replace(/,\s*,/g, ', ').replace(/^[\s,]+/, '').replace(/[\s,]+$/, '').trim();
                     bookingNotes.value = newText;
                     chip.classList.remove('is-active');
                     chip.setAttribute('aria-pressed', 'false');
                 } else {
-                    // Append chip text to existing typed notes
                     const trimmed = currentText.trim();
-                    if (trimmed.length === 0) {
-                        bookingNotes.value = chipVal;
-                    } else {
-                        bookingNotes.value = `${trimmed}, ${chipVal}`;
-                    }
+                    bookingNotes.value = trimmed.length === 0 ? chipVal : `${trimmed}, ${chipVal}`;
                     chip.classList.add('is-active');
                     chip.setAttribute('aria-pressed', 'true');
                 }
@@ -366,7 +399,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Live typing in textarea updates counter and syncs chips
         bookingNotes.addEventListener('input', () => {
             updateNotesCounter();
             syncChipsWithText();
@@ -384,7 +416,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const pickup = formData.get('pickup');
             const notes = (formData.get('notes') || '').toString().trim();
 
-            // Format date for human readability
             let dateStr = 'Not specified';
             if (date) {
                 const d = new Date(date + 'T00:00:00');
@@ -395,7 +426,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // Format guest count string cleanly
             let guestStr = guests;
             if (guests === '1') {
                 guestStr = '1 guest';
@@ -407,7 +437,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 guestStr = `${guests} guests`;
             }
 
-            // Build structured WhatsApp message with custom request/notes
             const messageLines = [
                 `Hi, I'd like to book a private Kumana safari.`,
                 ``,
@@ -424,21 +453,9 @@ document.addEventListener('DOMContentLoaded', () => {
             messageLines.push(``, `Please confirm availability and rates. Thank you!`);
 
             const encoded = encodeURIComponent(messageLines.join('\n'));
-            const waUrl = `https://wa.me/94716716802?text=${encoded}`;
+            const waUrl = `https://wa.me/${WA_NUMBER}?text=${encoded}`;
 
             window.open(waUrl, '_blank', 'noopener,noreferrer');
-        });
-    }
-
-
-    // ── 10. Mobile Persistent CTA Bar ────────────────────────────────────────
-    const mobileCta = document.getElementById('mobileCta');
-    const heroSection = document.querySelector('.hero');
-
-    if (mobileCta && heroSection) {
-        window.addEventListener('scroll', () => {
-            const heroBottom = heroSection.getBoundingClientRect().bottom;
-            mobileCta.classList.toggle('visible', heroBottom < 0);
         });
     }
 

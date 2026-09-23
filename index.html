@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Security Headers (meta fallbacks — also enforce these server-side) -->
+    <!-- Security & Policy Meta Tags -->
     <meta http-equiv="Content-Security-Policy"
           content="default-src 'self';
                    script-src 'self';
@@ -26,29 +26,33 @@
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://gokumana.com/">
 
-    <!-- Geographic Meta Tags -->
     <meta name="geo.region" content="LK">
     <meta name="geo.placename" content="Kumana National Park">
     <meta name="geo.position" content="6.5167;81.7000">
     <meta name="ICBM" content="6.5167, 81.7000">
 
-    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <!-- Open Graph & Social Cards -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Kumana Wings &amp; Roars">
     <meta property="og:url" content="https://gokumana.com/">
     <meta property="og:title" content="Kumana Safari Sri Lanka | Leopard &amp; Bird Watching Jeep Tours">
     <meta property="og:description" content="Book private 4x4 jeep safaris in Kumana National Park (Yala East), Sri Lanka. Experience bird watching at Kumana Villu and leopard tracking with expert local guides.">
     <meta property="og:image" content="https://gokumana.com/assets/images/hero.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Kumana National Park safari jeep and wildlife">
     <meta property="og:locale" content="en_US">
 
-    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://gokumana.com/">
     <meta name="twitter:title" content="Kumana Safari Sri Lanka | Leopard &amp; Bird Watching Jeep Tours">
     <meta name="twitter:description" content="Bespoke private 4x4 jeep safaris in Kumana National Park (Yala East), Sri Lanka. Leopard tracking &amp; bird watching tours.">
     <meta name="twitter:image" content="https://gokumana.com/assets/images/hero.png">
+    <meta name="twitter:image:width" content="1200">
+    <meta name="twitter:image:height" content="630">
+    <meta name="twitter:image:alt" content="Kumana National Park safari jeep and wildlife">
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data (Schema.org JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -219,26 +223,24 @@
     }
     </script>
 
-    <!-- Favicons -->
+    <!-- Favicons & Preloads -->
     <link rel="icon" href="favicon.ico" sizes="32x32">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#1A3626">
 
-    <!-- Preload hero image -->
     <link rel="preload" as="image" type="image/webp" href="assets/images/hero.webp">
 
-    <!-- Google Fonts -->
+    <!-- Typography & Stylesheets -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ==================== NAVBAR ==================== -->
+    <!-- Navigation Header -->
     <header class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo" aria-label="Kumana Wings &amp; Roars Home">
@@ -262,7 +264,7 @@
     </header>
 
     <main>
-        <!-- ==================== HERO ==================== -->
+        <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="hero-overlay"></div>
             <div class="container hero-content">
@@ -306,7 +308,7 @@
             </div>
         </section>
 
-        <!-- ==================== ABOUT ==================== -->
+        <!-- About Kumana -->
         <section class="about" id="about">
             <div class="container about-grid">
                 <div class="about-text reveal">
@@ -330,7 +332,7 @@
             </div>
         </section>
 
-        <!-- ==================== WHY KUMANA ==================== -->
+        <!-- Why Kumana Highlights -->
         <section class="why-kumana" id="why-kumana">
             <div class="container">
                 <div class="section-header reveal">
@@ -378,7 +380,7 @@
             </div>
         </section>
 
-        <!-- ==================== GALLERY ==================== -->
+        <!-- Wildlife Photo Gallery -->
         <section class="gallery" id="gallery">
             <div class="container">
                 <div class="section-header reveal">
@@ -388,7 +390,6 @@
                     <p class="gallery-disclaimer"><em>Wildlife sightings are never guaranteed. Our experienced trackers maximise your chances while respecting the animals and park regulations.</em></p>
                 </div>
 
-                <!-- Gallery Category Filter Tabs -->
                 <div class="gallery-filters reveal" role="tablist" aria-label="Gallery filters">
                     <button type="button" class="gallery-filter-btn active" data-filter="all" role="tab" aria-selected="true">All (10)</button>
                     <button type="button" class="gallery-filter-btn" data-filter="wildlife" role="tab" aria-selected="false">Leopards &amp; Wildlife</button>
@@ -397,9 +398,7 @@
                     <button type="button" class="gallery-filter-btn" data-filter="landscapes" role="tab" aria-selected="false">Untamed Landscapes</button>
                 </div>
 
-                <!-- Gallery Responsive Grid -->
                 <div class="gallery-grid" id="galleryGrid">
-                    <!-- Photo 1: Leopard Real -->
                     <div class="gallery-card reveal" data-category="wildlife" tabindex="0" role="button" aria-label="View Sri Lankan Leopard in Kumana National Park">
                         <div class="gallery-card-media">
                             <img src="assets/images/real/kumana-leopard-real.jpg" alt="Sri Lankan leopard prowling through Kumana National Park wilderness" loading="lazy" width="600" height="420">
@@ -416,7 +415,6 @@
                         </div>
                     </div>
 
-                    <!-- Photo 2: Feeding Frenzy Birds -->
                     <div class="gallery-card reveal delay-1" data-category="birds" tabindex="0" role="button" aria-label="View Feeding Frenzy at Kumana Villu">
                         <div class="gallery-card-media">
                             <img src="assets/images/real/kumana-feeding-frenzy.jpg" alt="Feeding frenzy of cormorants, painted storks and spot-billed pelicans at Kumana Villu swamp" loading="lazy" width="600" height="420">
@@ -433,7 +431,6 @@
                         </div>
                     </div>
 
-                    <!-- Photo 3: Elephant & Sea Eagles -->
                     <div class="gallery-card reveal delay-2" data-category="wildlife" tabindex="0" role="button" aria-label="View Wild Elephant &amp; Sea Eagles">
                         <div class="gallery-card-media">
                             <img src="assets/images/real/kumana-elephant-birds.jpg" alt="Sri Lankan wild elephant grazing with white-bellied sea eagles at a Kumana waterhole" loading="lazy" width="600" height="420">
@@ -450,7 +447,6 @@
                         </div>
                     </div>
 
-                    <!-- Photo 4: Leopard in Tree -->
                     <div class="gallery-card reveal" data-category="wildlife" tabindex="0" role="button" aria-label="View Leopard in Tree Canopy">
                         <div class="gallery-card-media">
                             <img src="assets/images/real/kumana-leopard-tree.jpg" alt="Sri Lankan leopard resting safely in high branch canopy at Kumana" loading="lazy" width="600" height="420">
@@ -467,7 +463,6 @@
                         </div>
                     </div>
 
-                    <!-- Photo 5: Black-Necked Stork -->
                     <div class="gallery-card reveal delay-1" data-category="birds" tabindex="0" role="button" aria-label="View Rare Black-Necked Stork">
                         <div class="gallery-card-media">
                             <img src="assets/images/real/kumana-black-stork.jpg" alt="Extremely rare black-necked stork photographed standing in Kumana lagoon" loading="lazy" width="600" height="420">
@@ -484,7 +479,6 @@
                         </div>
                     </div>
 
-                    <!-- Photo 6: Safari Jeep -->
                     <div class="gallery-card reveal delay-2" data-category="jeeps" tabindex="0" role="button" aria-label="View Custom 4x4 Safari Jeep">
                         <div class="gallery-card-media">
                             <img src="assets/images/vehicle2.jpg" alt="Modified 4x4 safari jeep with elevated 360-degree viewing seats in Kumana" loading="lazy" width="600" height="420">
@@ -501,7 +495,6 @@
                         </div>
                     </div>
 
-                    <!-- Photo 7: Spotted Deer -->
                     <div class="gallery-card reveal" data-category="wildlife" tabindex="0" role="button" aria-label="View Ceylon Spotted Deer">
                         <div class="gallery-card-media">
                             <img src="assets/images/real/kumana-deer.jpg" alt="Herd of Ceylon spotted deer grazing in morning mist in Kumana National Park" loading="lazy" width="600" height="420">
@@ -518,7 +511,6 @@
                         </div>
                     </div>
 
-                    <!-- Photo 8: Bird Paradise Lake -->
                     <div class="gallery-card reveal delay-1" data-category="landscapes" tabindex="0" role="button" aria-label="View Bird Paradise Lake">
                         <div class="gallery-card-media">
                             <img src="assets/images/real/kumana-paradise-lake.jpg" alt="Panorama of Bird Paradise Lake reflecting the sky in Kumana National Park" loading="lazy" width="600" height="420">
@@ -535,7 +527,6 @@
                         </div>
                     </div>
 
-                    <!-- Photo 9: Safari Jeep Fleet -->
                     <div class="gallery-card reveal delay-2" data-category="jeeps" tabindex="0" role="button" aria-label="View Safari Expedition Fleet">
                         <div class="gallery-card-media">
                             <img src="assets/images/vehicle3.jpg" alt="Expedition ready 4x4 safari vehicles at Okanda entrance to Kumana" loading="lazy" width="600" height="420">
@@ -552,7 +543,6 @@
                         </div>
                     </div>
 
-                    <!-- Photo 10: Wetlands & Safari Track -->
                     <div class="gallery-card reveal" data-category="landscapes" tabindex="0" role="button" aria-label="View Kumana Wetlands &amp; Lagoon">
                         <div class="gallery-card-media">
                             <img src="assets/images/real/kumana-wetlands.jpg" alt="Vast tropical wetland lagoon in Kumana National Park" loading="lazy" width="600" height="420">
@@ -572,7 +562,7 @@
             </div>
         </section>
 
-        <!-- ==================== FLEET ==================== -->
+        <!-- 4x4 Safari Fleet -->
         <section class="fleet" id="fleet">
             <div class="container about-grid">
                 <div class="fleet-images reveal">
@@ -618,18 +608,16 @@
             </div>
         </section>
 
-        <!-- ==================== GOOGLE REVIEWS ==================== -->
+        <!-- Verified Google Reviews -->
         <section class="reviews-section" id="reviews">
             <span id="testimonials" class="anchor-alias" aria-hidden="true"></span>
             <div class="container">
-                <!-- Section Header with Google Summary Card -->
                 <div class="section-header reveal">
                     <h4 class="section-subtitle">Real Guest Ratings</h4>
                     <h2 class="section-title">What Our Guests Say on Google</h2>
                     <p class="section-desc">Authentic, unfiltered reviews from travelers and wildlife enthusiasts who experienced Kumana with us.</p>
                 </div>
 
-                <!-- Google Rating Badge Bar -->
                 <div class="google-badge-card reveal">
                     <div class="google-badge-brand">
                         <svg class="google-icon-lg" viewBox="0 0 24 24" width="38" height="38" aria-label="Google logo">
@@ -670,9 +658,7 @@
                     </div>
                 </div>
 
-                <!-- Google Reviews Grid -->
                 <div class="reviews-grid">
-                    <!-- Review Card 1 -->
                     <article class="google-review-card reveal">
                         <header class="review-header">
                             <div class="reviewer-avatar avatar-blue" aria-hidden="true">DM</div>
@@ -712,7 +698,6 @@
                         </div>
                     </article>
 
-                    <!-- Review Card 2 -->
                     <article class="google-review-card reveal delay-1">
                         <header class="review-header">
                             <div class="reviewer-avatar avatar-green" aria-hidden="true">EL</div>
@@ -752,7 +737,6 @@
                         </div>
                     </article>
 
-                    <!-- Review Card 3 -->
                     <article class="google-review-card reveal delay-2">
                         <header class="review-header">
                             <div class="reviewer-avatar avatar-red" aria-hidden="true">AS</div>
@@ -792,7 +776,6 @@
                         </div>
                     </article>
 
-                    <!-- Review Card 4 -->
                     <article class="google-review-card reveal">
                         <header class="review-header">
                             <div class="reviewer-avatar avatar-gold" aria-hidden="true">JV</div>
@@ -835,7 +818,7 @@
             </div>
         </section>
 
-        <!-- ==================== SAFARIS ==================== -->
+        <!-- Safari Packages & Itineraries -->
         <section class="safaris" id="safaris">
             <div class="container">
                 <div class="section-header reveal">
@@ -843,7 +826,6 @@
                     <h2 class="section-title">Choose Your Adventure</h2>
                 </div>
                 <div class="safari-grid">
-                    <!-- Half Day Safari -->
                     <div class="safari-card reveal">
                         <div class="card-image">
                             <picture>
@@ -878,7 +860,6 @@
                         </div>
                     </div>
 
-                    <!-- Full Day Safari -->
                     <div class="safari-card reveal delay-1">
                         <div class="card-image">
                             <picture>
@@ -917,7 +898,7 @@
             </div>
         </section>
 
-        <!-- ==================== BOOKING ==================== -->
+        <!-- Booking & Availability Inquiry -->
         <section class="booking" id="booking">
             <div class="container booking-container reveal">
                 <div class="booking-info">
@@ -1034,11 +1015,11 @@
                             Check Availability on WhatsApp
                         </button>
                     </form>
-                </div><!-- /.booking-widget -->
-            </div><!-- /.booking-container -->
-        </section><!-- /#booking -->
+                </div>
+            </div>
+        </section>
 
-        <!-- ==================== FAQ ==================== -->
+        <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="container faq-container">
             <div class="faq-header reveal">
@@ -1180,10 +1161,10 @@
                 </div>
             </div>
         </div>
-    </section><!-- /#faq -->
+    </section>
     </main>
 
-    <!-- ==================== GALLERY LIGHTBOX MODAL ==================== -->
+    <!-- Gallery Lightbox Modal -->
     <div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Image Preview" hidden>
         <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
         <div class="lightbox-container">
@@ -1197,6 +1178,9 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
             <div class="lightbox-media-box">
+                <div class="lightbox-spinner" id="lightboxSpinner" aria-hidden="true">
+                    <div class="lightbox-spinner-ring"></div>
+                </div>
                 <img src="" alt="" id="lightboxImg" class="lightbox-img">
             </div>
             <div class="lightbox-caption">
@@ -1209,7 +1193,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Site Footer -->
     <footer>
         <div class="container footer-grid">
             <div class="footer-brand">
@@ -1274,8 +1258,7 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp CTA -->
-    <!-- ==================== FLOATING WHATSAPP CTA ==================== -->
+    <!-- Floating WhatsApp Action -->
     <a href="https://wa.me/94716716802?text=Hi%2C%20I%27d%20like%20to%20inquire%20about%20a%20Kumana%20safari%20tour."
        class="whatsapp-float"
        target="_blank"
@@ -1284,15 +1267,14 @@
         <svg width="32" height="32" fill="#ffffff" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
     </a>
 
-    <!-- ==================== BACK TO TOP ==================== -->
+    <!-- Back to Top Control -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
 
-    <!-- ==================== SCRIPTS ==================== -->
     <script src="script.js"></script>
 
-    <!-- ==================== PERSISTENT MOBILE CTA ==================== -->
+    <!-- Mobile Persistent CTA Bar -->
     <div class="mobile-cta-bar" id="mobileCta">
         <a href="https://wa.me/94716716802?text=Hi%2C%20I%27d%20like%20to%20inquire%20about%20a%20Kumana%20safari%20tour." target="_blank" rel="noopener noreferrer" class="mobile-cta-link">
             <svg width="20" height="20" fill="#ffffff" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
@@ -1300,7 +1282,7 @@
         </a>
     </div>
 
-    <!-- Reusable SVG symbol definitions -->
+    <!-- Global SVG Icon Sprites -->
     <svg class="svg-sprite" hidden aria-hidden="true">
         <symbol id="icon-whatsapp" viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>

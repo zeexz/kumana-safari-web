@@ -1,33 +1,30 @@
-/* ========== Design Tokens ========== */
+/* ==========================================================================
+   Design Tokens & CSS Custom Properties
+   ========================================================================== */
 :root {
-    /* Brand colours */
-    --primary: #1A3626;
-    /* Jungle Green  */
-    --primary-light: #2c5a40;
-    --secondary: #E5A93D;
-    /* Leopard Gold  */
-    --secondary-hover: #c68e27;
-    --accent: #D3C4A5;
-    /* Safari Sand   */
-    --text-dark: #1a1a1a;
-    --text-light: #555555;
-    --bg-color: #F7F5F0;
-    --white: #ffffff;
+    --primary:        #1A3626;
+    --primary-light:  #2c5a40;
+    --secondary:      #E5A93D;
+    --secondary-hover:#c68e27;
+    --accent:         #D3C4A5;
+    --text-dark:      #1a1a1a;
+    --text-light:     #555555;
+    --bg-color:       #F7F5F0;
+    --white:          #ffffff;
 
-    /* WhatsApp green — single source of truth */
-    --whatsapp: #25D366;
+    --whatsapp:       #25D366;
     --whatsapp-hover: #1da851;
 
-    /* Typography */
     --font-heading: 'Playfair Display', serif;
-    --font-body: 'Outfit', sans-serif;
+    --font-body:    'Outfit', sans-serif;
 
-    /* Shared easing */
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 
-/* ========== Reset & Base ========== */
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -54,7 +51,9 @@ body {
 }
 
 
-/* ========== Typography ========== */
+/* ==========================================================================
+   Typography & Global Headings
+   ========================================================================== */
 h1,
 h2,
 h3,
@@ -87,7 +86,9 @@ p {
 }
 
 
-/* ========== Buttons ========== */
+/* ==========================================================================
+   Button Components
+   ========================================================================== */
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
@@ -135,7 +136,9 @@ p {
 }
 
 
-/* ========== Navbar ========== */
+/* ==========================================================================
+   Navigation Header
+   ========================================================================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -172,14 +175,12 @@ p {
     gap: 0.3rem;
 }
 
-/* Logo colours — transparent navbar (over hero) */
 .navbar:not(.scrolled) .logo .wings,
 .navbar:not(.scrolled) .logo .roars,
 .navbar:not(.scrolled) .logo .amp {
     color: var(--white);
 }
 
-/* Logo colours — opaque scrolled navbar */
 .navbar.scrolled .logo .wings {
     color: var(--accent);
 }
@@ -207,7 +208,6 @@ p {
     transition: var(--transition);
 }
 
-/* Underline hover effect */
 .nav-links a:not(.btn)::after {
     content: '';
     position: absolute;
@@ -238,13 +238,14 @@ p {
 }
 
 
-/* ========== Hero ========== */
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
 .hero {
     min-height: 100vh;
     height: auto;
     padding-top: clamp(6.5rem, 13vh, 8.5rem);
     padding-bottom: clamp(3.5rem, 7vh, 5.5rem);
-    /* WebP is loaded by default; PNG fallback is in the @supports block below */
     background-image: url('assets/images/hero.webp');
     background-size: cover;
     background-position: center;
@@ -254,14 +255,13 @@ p {
     align-items: center;
 }
 
-/* iOS does not support background-attachment: fixed — falls back to scroll */
+/* Fallback: iOS Safari does not support fixed background attachments */
 @supports (-webkit-touch-callout: none) {
     .hero {
         background-attachment: scroll;
     }
 }
 
-/* PNG fallback for browsers that don't support WebP (very rare now) */
 @supports not (background-image: url('assets/images/hero.webp')) {
     .hero {
         background-image: url('assets/images/hero.png');
@@ -324,7 +324,6 @@ p {
     font-weight: 700;
 }
 
-/* The subtitle line within the hero h1 */
 .hero-content h1 .hero-subtitle {
     display: block;
     color: var(--secondary);
@@ -420,7 +419,9 @@ p {
 }
 
 
-/* ========== About ========== */
+/* ==========================================================================
+   About Section
+   ========================================================================== */
 .about {
     padding: 8rem 0;
     background-color: var(--bg-color);
@@ -463,7 +464,9 @@ p {
 }
 
 
-/* ========== Gallery Section ========== */
+/* ==========================================================================
+   Wildlife Gallery
+   ========================================================================== */
 .gallery {
     padding: 7rem 0;
     background-color: var(--primary);
@@ -633,7 +636,9 @@ p {
 }
 
 
-/* ========== Fleet ========== */
+/* ==========================================================================
+   4x4 Safari Fleet
+   ========================================================================== */
 .fleet {
     padding: 8rem 0;
     background-color: var(--white);
@@ -666,7 +671,9 @@ p {
 }
 
 
-/* ========== Google Reviews Section ========== */
+/* ==========================================================================
+   Google Reviews & Testimonials
+   ========================================================================== */
 .reviews-section {
     padding: 7rem 0;
     background-color: var(--bg-color);
@@ -956,7 +963,9 @@ p {
 }
 
 
-/* ========== Safaris ========== */
+/* ==========================================================================
+   Safari Packages & Cards
+   ========================================================================== */
 .safaris {
     padding: 8rem 0;
     background-color: var(--primary);
@@ -1064,7 +1073,9 @@ p {
 }
 
 
-/* ========== Booking ========== */
+/* ==========================================================================
+   Booking & Availability Section
+   ========================================================================== */
 .booking {
     padding: 8rem 0;
     background-color: var(--accent);
@@ -1114,7 +1125,6 @@ p {
     color: var(--secondary);
 }
 
-/* WhatsApp package cards */
 .booking-packages {
     display: flex;
     flex-direction: column;
@@ -1275,7 +1285,9 @@ p {
 }
 
 
-/* ========== FAQ ========== */
+/* ==========================================================================
+   FAQ Accordion
+   ========================================================================== */
 .faq {
     padding: 7rem 0;
     background-color: var(--bg-color);
@@ -1397,7 +1409,9 @@ p {
 }
 
 
-/* ========== Footer ========== */
+/* ==========================================================================
+   Site Footer
+   ========================================================================== */
 footer {
     background-color: var(--primary);
     color: var(--white);
@@ -1527,7 +1541,9 @@ footer {
 }
 
 
-/* ========== Back to Top Button ========== */
+/* ==========================================================================
+   Back-to-Top Control
+   ========================================================================== */
 .back-to-top {
     position: fixed;
     bottom: 2rem;
@@ -1566,7 +1582,9 @@ footer {
 }
 
 
-/* ========== Lightbox Modal ========== */
+/* ==========================================================================
+   Gallery Lightbox Modal
+   ========================================================================== */
 .lightbox {
     position: fixed;
     top: 0;
@@ -1609,6 +1627,7 @@ footer {
 }
 
 .lightbox-media-box {
+    position: relative;
     max-width: 1000px;
     max-height: 72vh;
     display: flex;
@@ -1625,6 +1644,37 @@ footer {
     object-fit: contain;
     border-radius: 14px;
     display: block;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-spinner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    pointer-events: none;
+}
+
+.lightbox-spinner.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.lightbox-spinner-ring {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.15);
+    border-top-color: var(--color-ochre, #C27803);
+    animation: lightbox-spin 0.8s linear infinite;
+}
+
+@keyframes lightbox-spin {
+    to { transform: rotate(360deg); }
 }
 
 .lightbox-caption {
@@ -1714,7 +1764,9 @@ footer {
 }
 
 
-/* ========== Floating WhatsApp Button ========== */
+/* ==========================================================================
+   Floating WhatsApp Action
+   ========================================================================== */
 .whatsapp-float {
     position: fixed;
     bottom: 2rem;
@@ -1749,7 +1801,6 @@ footer {
     }
 }
 
-/* Inline WhatsApp icon links (next to phone numbers) */
 .whatsapp-contact {
     display: inline-flex;
     align-items: center;
@@ -1768,7 +1819,9 @@ footer {
 }
 
 
-/* ========== Animations ========== */
+/* ==========================================================================
+   Global Animations & Reveal Transitions
+   ========================================================================== */
 .fade-in-up {
     opacity: 0;
     transform: translateY(30px);
@@ -1802,7 +1855,9 @@ footer {
 }
 
 
-/* ========== Accessibility: Visible Focus States ========== */
+/* ==========================================================================
+   Accessibility & Focus Outlines
+   ========================================================================== */
 *:focus-visible {
     outline: 3px solid var(--secondary);
     outline-offset: 3px;
@@ -1846,7 +1901,7 @@ select:focus-visible {
 }
 
 
-/* ========== Number Input — Hide Spinners ========== */
+/* Form Reset: Remove spin buttons on number inputs */
 input[type="number"] {
     appearance: textfield;
     -moz-appearance: textfield;
@@ -1859,7 +1914,6 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-/* ========== Hero Tagline ========== */
 .hero-tagline {
     font-size: 1.15rem;
     font-weight: 600;
@@ -1871,7 +1925,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-/* ========== Why Kumana Section ========== */
+/* ==========================================================================
+   Why Kumana Highlights Section
+   ========================================================================== */
 .why-kumana {
     padding: 7rem 0;
     background-color: var(--white);
@@ -1943,7 +1999,6 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-/* ========== Gallery Disclaimer ========== */
 .gallery-disclaimer {
     color: rgba(255, 255, 255, 0.55);
     font-size: 0.88rem;
@@ -1951,7 +2006,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-/* ========== Safari Card Enhancements ========== */
+/* Safari Feature Badges & Inclusions */
 .card-meta-row {
     display: flex;
     flex-wrap: wrap;
@@ -1990,7 +2045,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-/* ========== Booking Widget ========== */
+/* ==========================================================================
+   Interactive Booking Widget
+   ========================================================================== */
 .booking-widget {
     display: flex;
     flex-direction: column;
@@ -2119,7 +2176,7 @@ input[type="number"]::-webkit-inner-spin-button {
     background: var(--secondary);
 }
 
-/* ========== Booking Request & Notes (Typing & Click Features) ========== */
+/* Booking Request Notes & Interactive Tags */
 .booking-request-group {
     display: flex;
     flex-direction: column;
@@ -2271,7 +2328,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-/* ========== Google Reviews CTA Enhancement ========== */
+/* Google Reviews External Action Controls */
 .google-badge-cta {
     display: flex;
     gap: 0.75rem;
@@ -2284,7 +2341,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-/* ========== Mobile Persistent CTA Bar ========== */
+/* ==========================================================================
+   Mobile Persistent CTA Bar
+   ========================================================================== */
 .mobile-cta-bar {
     display: none;
     position: fixed;
@@ -2317,7 +2376,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-/* ========== Footer Enhancements ========== */
+/* Footer Direct Contact Links */
 .footer-bottom-links {
     display: flex;
     justify-content: center;
@@ -2344,7 +2403,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-/* ========== Responsive: 992px ========== */
+/* ==========================================================================
+   Responsive: Desktop & Tablet Landscape (<= 992px)
+   ========================================================================== */
 @media (max-width: 992px) {
     .hero-content h1 {
         font-size: 3.4rem;
@@ -2395,13 +2456,14 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-/* ========== Responsive: 768px ========== */
+/* ==========================================================================
+   Responsive: Tablet Portrait & Large Mobile (<= 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
     .container {
         padding: 0 1.5rem;
     }
 
-    /* Mobile nav — slide-in drawer */
     .nav-links {
         position: fixed;
         top: 0;
@@ -2435,7 +2497,6 @@ input[type="number"]::-webkit-inner-spin-button {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Hero */
     .hero {
         background-attachment: scroll;
         padding-top: 6.5rem;
@@ -2463,7 +2524,6 @@ input[type="number"]::-webkit-inner-spin-button {
         display: none;
     }
 
-    /* Typography */
     .hero-content h1 {
         font-size: 2.5rem;
     }
@@ -2481,17 +2541,14 @@ input[type="number"]::-webkit-inner-spin-button {
         font-size: 2.2rem;
     }
 
-    /* Gallery */
     .gallery-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Mobile CTA Bar */
     .mobile-cta-bar {
         display: block;
     }
 
-    /* Offset bottom for mobile CTA bar */
     .whatsapp-float {
         bottom: 5rem;
     }
@@ -2500,7 +2557,6 @@ input[type="number"]::-webkit-inner-spin-button {
         bottom: 5rem;
     }
 
-    /* Lightbox nav position on mobile */
     .lightbox-nav {
         width: 42px;
         height: 42px;
@@ -2514,7 +2570,6 @@ input[type="number"]::-webkit-inner-spin-button {
         right: -15px;
     }
 
-    /* FAQ */
     .faq {
         padding: 5rem 0;
     }
@@ -2536,19 +2591,17 @@ input[type="number"]::-webkit-inner-spin-button {
         padding: 0 1.25rem;
     }
 
-    /* Booking */
     .booking-container {
         border-radius: 20px;
     }
 
-    /* Ensure WhatsApp contact icons have adequate tap area */
+    /* Ensure contact triggers have accessible minimum tap targets */
     .whatsapp-contact {
         min-width: 44px;
         min-height: 44px;
         margin-left: 0.25rem;
     }
 
-    /* Prevent phone numbers from causing horizontal scroll */
     .contact-item span {
         display: flex;
         flex-wrap: wrap;
@@ -2557,12 +2610,10 @@ input[type="number"]::-webkit-inner-spin-button {
         word-break: break-word;
     }
 
-    /* Reduce card image height on mobile */
     .card-image {
         height: 200px;
     }
 
-    /* Footer */
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -2579,7 +2630,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-/* ========== Responsive: 480px ========== */
+/* ==========================================================================
+   Responsive: Mobile Devices (<= 480px)
+   ========================================================================== */
 @media (max-width: 480px) {
     .hero-content h1 {
         font-size: 2rem;
@@ -2630,17 +2683,14 @@ input[type="number"]::-webkit-inner-spin-button {
         padding: 0.7rem 1.5rem;
     }
 
-    /* Safari cards stack vertically on very small screens */
     .safari-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Stack phone numbers vertically with WhatsApp icons */
     .contact-item {
         flex-wrap: wrap;
     }
 
-    /* WhatsApp package card adjustments */
     .whatsapp-package-card {
         padding: 1rem;
         gap: 0.75rem;
@@ -2660,7 +2710,6 @@ input[type="number"]::-webkit-inner-spin-button {
         font-size: 1.4rem;
     }
 
-    /* Smaller floating WhatsApp & Back to Top button on tiny screens */
     .whatsapp-float {
         width: 52px;
         height: 52px;
