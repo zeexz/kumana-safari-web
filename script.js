@@ -290,28 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Support lightbox previews for guest-submitted review images
-    const reviewThumbs = document.querySelectorAll('.review-photo-thumb');
-    reviewThumbs.forEach((thumb) => {
-        thumb.addEventListener('click', () => {
-            const img = thumb.querySelector('img');
-            if (!img) return;
-            const card = thumb.closest('.google-review-card');
-            const reviewerName = card?.querySelector('.reviewer-name')?.textContent || 'Guest Safari Photo';
-            openLightbox([{
-                src: img.getAttribute('src'),
-                title: reviewerName,
-                location: 'Kumana National Park (Guest Sighting)'
-            }], 0);
-        });
 
-        thumb.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                thumb.click();
-            }
-        });
-    });
 
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
     if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
