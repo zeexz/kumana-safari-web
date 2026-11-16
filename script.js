@@ -1,27 +1,12 @@
-/**
- * Kumana Safari - Main Client Application Script
- * Orchestrates navigation state, scroll-based UI updates, gallery interactions,
- * modal lightbox presentation, and WhatsApp booking query generation.
- */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* ==========================================================================
-       Configuration & Constants
-       ========================================================================== */
-    /** Primary business WhatsApp number in international format (no leading '+') */
     const WA_NUMBER = '94716716802';
 
-
-    /* ==========================================================================
-       Scroll State Controller
-       Batches scroll-dependent DOM updates into a single passive listener to
-       prevent layout thrashing across high-frequency scroll events.
-       ========================================================================== */
+    // Navbar & scroll state
     const navbar = document.querySelector('.navbar');
     const backToTopBtn = document.getElementById('backToTop');
-    const mobileCta    = document.getElementById('mobileCta');
-    const heroSection  = document.querySelector('.hero');
+    const mobileCta = document.getElementById('mobileCta');
+    const heroSection = document.querySelector('.hero');
 
     function onScroll() {
         const scrollY = window.scrollY;
@@ -46,12 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    /* ==========================================================================
-       Mobile Navigation Drawer
-       ========================================================================== */
-    const hamburger  = document.querySelector('.hamburger');
-    const navLinks   = document.querySelector('.nav-links');
+    // Mobile navigation
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
     const navAnchors = document.querySelectorAll('.nav-links a');
 
     function toggleMenu() {
@@ -75,11 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
-    /* ==========================================================================
-       Scroll Reveal Animations
-       Uses IntersectionObserver to trigger entry transitions on viewport entry.
-       ========================================================================== */
+    // Scroll reveal animations
     const revealObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
@@ -94,32 +72,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-
-    /* ==========================================================================
-       FAQ Accordion
-       Manages single-item expansion with dynamic scrollHeight calculation for
-       smooth CSS height transitions.
-       ========================================================================== */
+    // FAQ accordion
     const faqItems = document.querySelectorAll('.faq-item');
 
     function closeFaqItem(item) {
         item.classList.remove('open');
         const answer = item.querySelector('.faq-answer');
-        const btn    = item.querySelector('.faq-question');
+        const btn = item.querySelector('.faq-question');
         if (answer) answer.style.maxHeight = null;
-        if (btn)    btn.setAttribute('aria-expanded', 'false');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
     }
 
     faqItems.forEach((item) => {
         const questionBtn = item.querySelector('.faq-question');
-        const answer      = item.querySelector('.faq-answer');
+        const answer = item.querySelector('.faq-answer');
 
         if (!questionBtn || !answer) return;
 
         questionBtn.addEventListener('click', () => {
             const isOpen = item.classList.contains('open');
 
-            // Enforce single active panel
             faqItems.forEach((other) => {
                 if (other !== item && other.classList.contains('open')) {
                     closeFaqItem(other);
@@ -136,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Recalculate expanded height when viewport width changes to prevent text clipping
     window.addEventListener('resize', () => {
         const openItem = document.querySelector('.faq-item.open');
         if (!openItem) return;
@@ -144,10 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (answer) answer.style.maxHeight = `${answer.scrollHeight + 20}px`;
     });
 
-
-    /* ==========================================================================
-       Gallery Category Filtering
-       ========================================================================== */
+    // Gallery category filtering
     const filterBtns = document.querySelectorAll('.gallery-filter-btn');
     const galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
 
@@ -183,11 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
-    /* ==========================================================================
-       Gallery Lightbox Modal
-       Provides modal image preview with preload states and keyboard navigation.
-       ========================================================================== */
+    // Gallery lightbox modal
     const lightbox = document.getElementById('galleryLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxSpinner = document.getElementById('lightboxSpinner');
@@ -209,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLightboxContent();
 
         lightbox.removeAttribute('hidden');
-        // Defer class application by a frame so CSS opacity transitions apply after unhiding
         requestAnimationFrame(() => {
             lightbox.classList.add('active');
         });
@@ -262,7 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLightboxContent();
     }
 
-    // Attach click and keyboard triggers to all visible gallery cards
     galleryCards.forEach((card) => {
         const triggerOpen = () => {
             const visibleCards = galleryCards.filter((c) => !c.classList.contains('hidden'));
@@ -290,8 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
-
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
     if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
     if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightbox);
@@ -309,19 +269,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
-    /* ==========================================================================
-       Booking Form & WhatsApp Inquiry Generator
-       Compiles user selection, date formatting, and customizable chips into
-       a pre-filled WhatsApp message URL.
-       ========================================================================== */
+    // Booking form & WhatsApp inquiry
     const bookingForm = document.getElementById('bookingForm');
     const bookingDateInput = document.getElementById('booking-date');
     const bookingNotes = document.getElementById('booking-notes');
     const bookingNotesCounter = document.getElementById('bookingNotesCounter');
     const quickChips = document.querySelectorAll('#bookingQuickChips .quick-chip');
 
-    // Restrict date picker to today onwards
     if (bookingDateInput) {
         const today = new Date();
         const yyyy = today.getFullYear();
@@ -349,7 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Toggle quick chips into the freeform notes textarea
     if (quickChips.length && bookingNotes) {
         quickChips.forEach(chip => {
             chip.addEventListener('click', () => {
@@ -394,6 +347,38 @@ document.addEventListener('DOMContentLoaded', () => {
             const safari = formData.get('safari');
             const pickup = formData.get('pickup');
             const notes = (formData.get('notes') || '').toString().trim();
+
+            // --- Validation ---
+            // 1. Date must be provided and not in the past
+            if (!date) {
+                const dateInput = document.getElementById('booking-date');
+                dateInput.focus();
+                dateInput.setCustomValidity('Please select a preferred date.');
+                dateInput.reportValidity();
+                dateInput.setCustomValidity('');
+                return;
+            }
+            const selectedDate = new Date(date + 'T00:00:00');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            if (selectedDate < today) {
+                const dateInput = document.getElementById('booking-date');
+                dateInput.focus();
+                dateInput.setCustomValidity('Please select a future date — we cannot book past dates.');
+                dateInput.reportValidity();
+                dateInput.setCustomValidity('');
+                return;
+            }
+            // 2. Guest count must be selected
+            if (!guests) {
+                const guestsSelect = document.getElementById('booking-guests');
+                guestsSelect.focus();
+                guestsSelect.setCustomValidity('Please select the number of guests.');
+                guestsSelect.reportValidity();
+                guestsSelect.setCustomValidity('');
+                return;
+            }
+            // --- End Validation ---
 
             let dateStr = 'Not specified';
             if (date) {

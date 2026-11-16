@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Security & Policy Meta Tags -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self';
+                   script-src 'self';
+                   style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+                   font-src https://fonts.gstatic.com;
+                   img-src 'self' https://gokumana.com data: blob:;
+                   connect-src 'none';
+                   frame-src 'none';
+                   object-src 'none';
+                   base-uri 'self';
+                   form-action 'self';
+                   frame-ancestors 'none';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancellation Policy | Kumana Wings &amp; Roars</title>
+    <meta name="description" content="Cancellation and rescheduling policy for Kumana Wings &amp; Roars safari tours. We understand travel plans change — here's how we handle it.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://gokumana.com/cancellation-policy.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kumana Wings &amp; Roars">
+    <meta property="og:url" content="https://gokumana.com/cancellation-policy.html">
+    <meta property="og:title" content="Cancellation Policy | Kumana Wings &amp; Roars">
+    <meta property="og:description" content="Flexible, guest-friendly cancellation and rescheduling policy for Kumana Wings &amp; Roars safari tours in Sri Lanka.">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <meta name="theme-color" content="#1A3626">
+
+    <!-- Typography & Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Policy page layout extras */
+        .policy-hero {
+            background-color: #1A3626;
+            color: #F7F5F0;
+            padding: 72px 24px 60px;
+            text-align: center;
+        }
+        .policy-hero .breadcrumb {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: rgba(247, 245, 240, 0.65);
+            margin-bottom: 16px;
+            letter-spacing: 0.04em;
+        }
+        .policy-hero .breadcrumb a {
+            color: rgba(247, 245, 240, 0.65);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .policy-hero .breadcrumb a:hover {
+            color: #E5A93D;
+        }
+        .policy-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 600;
+            color: #F7F5F0;
+            margin: 0 0 12px;
+        }
+        .policy-hero .policy-updated {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.875rem;
+            color: rgba(247, 245, 240, 0.6);
+        }
+        .policy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 56px 24px 80px;
+            font-family: 'Outfit', sans-serif;
+            color: #2d2d2d;
+            line-height: 1.8;
+        }
+        .policy-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1A3626;
+            margin: 44px 0 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E5A93D;
+        }
+        .policy-content h2:first-of-type {
+            margin-top: 0;
+        }
+        .policy-content h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1A3626;
+            margin: 24px 0 8px;
+        }
+        .policy-content p {
+            margin: 0 0 16px;
+        }
+        .policy-content ul {
+            margin: 0 0 16px 20px;
+            padding: 0;
+        }
+        .policy-content ul li {
+            margin-bottom: 8px;
+        }
+        .policy-content a {
+            color: #1A3626;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .policy-content a:hover {
+            color: #E5A93D;
+        }
+        /* Cancellation tiers table */
+        .cancellation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 24px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+        }
+        .cancellation-table thead tr {
+            background-color: #1A3626;
+            color: #F7F5F0;
+        }
+        .cancellation-table thead th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .cancellation-table tbody tr:nth-child(even) {
+            background-color: #f0ede6;
+        }
+        .cancellation-table tbody tr:nth-child(odd) {
+            background-color: #F7F5F0;
+        }
+        .cancellation-table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e0dbd1;
+        }
+        .cancellation-table .placeholder {
+            color: #888;
+            font-style: italic;
+        }
+        .notice-block {
+            background: #f0ede6;
+            border-left: 4px solid #E5A93D;
+            border-radius: 0 8px 8px 0;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .contact-block {
+            background: #1A3626;
+            color: #F7F5F0;
+            border-radius: 10px;
+            padding: 28px 32px;
+            margin-top: 20px;
+        }
+        .contact-block p { margin-bottom: 10px; color: #F7F5F0; }
+        .contact-block strong { color: #E5A93D; }
+        .contact-block a {
+            color: #E5A93D;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .contact-block a:hover { color: #fff; }
+        .wa-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25D366;
+            color: #fff !important;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+        .wa-btn:hover { background: #1ebe5a !important; color: #fff !important; }
+        /* Policy-specific header override */
+        .policy-header {
+            background: #1A3626;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(229, 169, 61, 0.3);
+        }
+        .policy-header .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+        .policy-header .logo .wings { color: #E5A93D; }
+        .policy-header .logo .amp    { color: rgba(247, 245, 240, 0.5); margin: 0 4px; }
+        .policy-header .logo .roars  { color: #F7F5F0; }
+    </style>
+</head>
+<body>
+
+    <!-- Minimal Header -->
+    <header class="policy-header">
+        <a href="index.html" class="logo" aria-label="Kumana Wings &amp; Roars — Back to Home">
+            <span class="wings">Wings</span> <span class="amp">&amp;</span> <span class="roars">Roars</span>
+        </a>
+    </header>
+
+    <!-- Hero -->
+    <section class="policy-hero">
+        <p class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Cancellation Policy</p>
+        <h1>Cancellation Policy</h1>
+        <p class="policy-updated">Last updated: November 2026</p>
+    </section>
+
+    <!-- Content -->
+    <main class="policy-content">
+
+        <h2>1. Our Approach</h2>
+        <p>We understand that travel plans can change unexpectedly. Our priority is always to work with you, not against you. If your circumstances change, please <strong>contact us on WhatsApp as early as possible</strong> — the sooner we hear from you, the more options we have to help.</p>
+        <div class="notice-block">
+            <p>Specific cancellation terms — including any deposit requirements and refund conditions — are <strong>confirmed in writing at the time of booking</strong>. The rates below serve as a general guide; your booking confirmation is the definitive reference.</p>
+        </div>
+
+        <h2>2. Rescheduling</h2>
+        <p>We will always try our best to accommodate a date change. If you need to move your safari to a different day:</p>
+        <ul>
+            <li>Contact us on WhatsApp as early as possible, even if you don't yet have an alternative date in mind.</li>
+            <li>Rescheduling is subject to availability and park conditions on your preferred new date.</li>
+            <li>We will always try to match your original package, itinerary, and price on a rescheduled date.</li>
+            <li>Rescheduling with sufficient notice (see table below) is typically free of charge. Late rescheduling (within 24 hours of the safari) may be treated as a cancellation.</li>
+        </ul>
+
+        <h2>3. Cancellation by Guest</h2>
+        <p>If you need to cancel your booking altogether, the following indicative tiers apply. <em>Your booking confirmation will state the exact figures that apply to your reservation.</em></p>
+
+        <table class="cancellation-table" aria-label="Cancellation fee tiers">
+            <thead>
+                <tr>
+                    <th scope="col">Notice given before safari</th>
+                    <th scope="col">Cancellation fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>More than 72 hours</td>
+                    <td class="placeholder">[ADD REAL RATE — e.g. Full refund of deposit]</td>
+                </tr>
+                <tr>
+                    <td>48–72 hours</td>
+                    <td class="placeholder">[ADD REAL RATE — e.g. 25% of total tour cost]</td>
+                </tr>
+                <tr>
+                    <td>24–48 hours</td>
+                    <td class="placeholder">[ADD REAL RATE — e.g. 50% of total tour cost]</td>
+                </tr>
+                <tr>
+                    <td>Less than 24 hours / no-show</td>
+                    <td class="placeholder">[ADD REAL RATE — e.g. 100% of total tour cost]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>All notice periods are calculated from the confirmed start time of your safari. Notice must be given via WhatsApp or email to be valid.</p>
+
+        <h2>4. Force Majeure &amp; Park Closures</h2>
+        <p>Kumana National Park is a living wilderness. Occasionally, circumstances entirely outside our control may require us to cancel or significantly alter a tour. These include:</p>
+        <ul>
+            <li>Official closure of the park by the Department of Wildlife Conservation.</li>
+            <li>Severe weather, flooding, or other natural events making safari travel unsafe.</li>
+            <li>Government-mandated restrictions or public health emergencies.</li>
+            <li>Major mechanical failure where a replacement vehicle cannot be sourced.</li>
+        </ul>
+        <p>In any of these situations, <strong>we will not charge a cancellation fee</strong>. We will offer you a full reschedule to a date of your choice (subject to availability) or, where rescheduling is not possible, a refund of any deposit or prepayment received. We will contact you as quickly as possible if such a situation arises.</p>
+
+        <h2>5. How to Cancel or Reschedule</h2>
+        <p>To request a cancellation or date change:</p>
+        <ol style="margin: 0 0 16px 20px; padding: 0;">
+            <li style="margin-bottom: 8px;">Message us on <strong>WhatsApp</strong> — this is the fastest way to reach us and ensures your request is timestamped.</li>
+            <li style="margin-bottom: 8px;">Include your name, booking date, and the reason for your request (optional but helpful).</li>
+            <li style="margin-bottom: 8px;">We will confirm receipt of your request and advise on next steps, usually within a few hours.</li>
+        </ol>
+        <p>Email is also accepted for cancellation requests at <a href="mailto:bookings@gokumana.com">bookings@gokumana.com</a>, however WhatsApp is preferred for speed.</p>
+
+        <h2>6. Contact</h2>
+        <div class="contact-block">
+            <p><strong>Reach us on WhatsApp — the quickest way to sort your booking:</strong></p>
+            <p>
+                <a class="wa-btn"
+                   href="https://wa.me/94716716802?text=Hi%2C%20I%20need%20to%20change%20or%20cancel%20my%20Kumana%20safari%20booking."
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="WhatsApp us about your booking">
+                    <!-- WhatsApp icon -->
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp Us
+                </a>
+            </p>
+            <p style="margin-top: 16px;">
+                📞 <a href="tel:+94716716802">+94 71 671 6802</a><br>
+                📧 <a href="mailto:bookings@gokumana.com">bookings@gokumana.com</a>
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom" style="border-top: none; padding: 32px 24px;">
+            <div class="footer-bottom-links">
+                <a href="index.html">Home</a>
+                <span class="footer-sep">·</span>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <span class="footer-sep">·</span>
+                <a href="terms.html">Terms &amp; Conditions</a>
+            </div>
+            <p>&copy; 2026 gokumana.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

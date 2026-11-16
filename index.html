@@ -10,7 +10,7 @@
                    font-src https://fonts.gstatic.com;
                    img-src 'self' https://gokumana.com data: blob:;
                    connect-src 'none';
-                   frame-src 'none';
+                   frame-src 'self' https://www.google.com https://maps.google.com;
                    object-src 'none';
                    base-uri 'self';
                    form-action 'self';
@@ -66,6 +66,11 @@
           "telephone": "+94716716802",
           "email": "bookings@gokumana.com",
           "priceRange": "$$ - $$$",
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61591779696576",
+            "https://www.instagram.com/achinthathushan/",
+            "https://maps.app.goo.gl/LNpf6c8pfcUCnL5X9"
+          ],
           "image": "https://gokumana.com/assets/images/hero.png",
           "address": {
             "@type": "PostalAddress",
@@ -117,12 +122,6 @@
                 }
               }
             ]
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "bestRating": "5",
-            "ratingCount": "138"
           }
         },
         {
@@ -250,7 +249,6 @@
                 <a href="#safaris">Safari Packages</a>
                 <a href="#why-kumana">Why Kumana</a>
                 <a href="#gallery">Gallery</a>
-                <a href="#reviews">Reviews</a>
                 <a href="#faq">FAQ</a>
                 <a href="#about">About</a>
                 <a href="#booking" class="btn btn-outline">Book Now</a>
@@ -273,17 +271,7 @@
                 <p class="fade-in-up delay-2">Discover the untamed beauty of Kumana National Park (Yala East). From elusive leopards to tens of thousands of migratory birds, experience a peaceful, private 4x4 safari expedition without the crowds.</p>
                 <div class="hero-actions fade-in-up delay-2">
                     <a href="#booking" class="btn btn-primary">Check Availability</a>
-                    <a href="https://www.google.com/search?q=Kumana+Wings+%26+Roars+safari+reviews" target="_blank" rel="noopener noreferrer" class="hero-review-pill" aria-label="View Google Reviews: 4.9 rating based on 138+ reviews">
-                        <svg class="google-icon-sm" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
-                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
-                            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
-                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-                        </svg>
-                        <span class="pill-stars">★★★★★</span>
-                        <span class="pill-score">4.9</span>
-                        <span class="pill-text">(138+ Google Reviews)</span>
-                    </a>
+                    <a href="#safaris" class="btn btn-outline">Explore Packages</a>
                 </div>
                 <div class="hero-trust-bar fade-in-up delay-3">
                     <div class="trust-item">
@@ -308,7 +296,7 @@
         <section class="about" id="about">
             <div class="container about-grid">
                 <div class="about-text reveal">
-                    <h4 class="section-subtitle">Welcome to Kumana</h4>
+                    <p class="section-subtitle">Welcome to Kumana</p>
                     <h2 class="section-title">Where the wild still reigns supreme.</h2>
                     <p>Located in the southeastern corner of Sri Lanka, Kumana National Park is a haven for nature lovers. Formerly known as Yala East, it boasts a unique ecosystem where dry zone tropical forests meet lush mangrove swamps.</p>
                     <p>We specialize in bespoke safari experiences. Whether you are seeking the vibrant <em>Wings</em> of the Kumana bird sanctuary or the elusive <em>Roars</em> of the Sri Lankan leopard, our expert guides will take you on an unforgettable journey.</p>
@@ -332,7 +320,7 @@
         <section class="why-kumana" id="why-kumana">
             <div class="container">
                 <div class="section-header reveal">
-                    <h4 class="section-subtitle">Why Choose Kumana?</h4>
+                    <p class="section-subtitle">Why Choose Kumana?</p>
                     <h2 class="section-title">A Safari Without the Crowds</h2>
                     <p class="section-desc">Kumana National Park offers everything Yala does — leopards, elephants, sloth bears — with a fraction of the vehicle traffic. Here's why experienced travelers choose Kumana.</p>
                 </div>
@@ -380,7 +368,7 @@
         <section class="gallery" id="gallery">
             <div class="container">
                 <div class="section-header reveal">
-                    <h4 class="section-subtitle">Real Moments in the Wilderness</h4>
+                    <p class="section-subtitle">Real Moments in the Wilderness</p>
                     <h2 class="section-title">Kumana Wildlife Gallery</h2>
                     <p class="section-desc">Authentic photographs captured by wildlife photographers and our safari guests inside Kumana National Park.</p>
                     <p class="gallery-disclaimer"><em>Wildlife sightings are never guaranteed. Our experienced trackers maximise your chances while respecting the animals and park regulations.</em></p>
@@ -475,15 +463,15 @@
                         </div>
                     </div>
 
-                    <div class="gallery-card reveal delay-2" data-category="jeeps" tabindex="0" role="button" aria-label="View Custom 4x4 Safari Jeep">
+                    <div class="gallery-card reveal delay-2" data-category="jeeps" tabindex="0" role="button" aria-label="View Kumana Safari Trail Track">
                         <div class="gallery-card-media">
-                            <img src="assets/images/vehicle2.jpg" alt="Modified 4x4 safari jeep with elevated 360-degree viewing seats in Kumana" loading="lazy" width="600" height="420">
-                            <div class="gallery-card-badge">Our Fleet</div>
+                            <img src="assets/images/real/kumana-safari-track.jpg" alt="Safari jeep track through the wilderness trails of Kumana National Park" loading="lazy" width="600" height="420">
+                            <div class="gallery-card-badge">Safari Trails</div>
                         </div>
                         <div class="gallery-card-info">
                             <div class="gallery-card-meta">
-                                <h3>Elevated 360° Viewing 4x4</h3>
-                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Safari Trail Ready</p>
+                                <h3>Wilderness Safari Track</h3>
+                                <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Okanda to Kumana Villu Route</p>
                             </div>
                             <span class="gallery-zoom-icon" aria-hidden="true">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
@@ -588,7 +576,7 @@
                     </div>
                 </div>
                 <div class="about-text reveal delay-1">
-                    <h4 class="section-subtitle">Our Fleet</h4>
+                    <p class="section-subtitle">Our Fleet</p>
                     <h2 class="section-title">Comfort in the Wild</h2>
                     <p>We use specially modified, elevated 4x4 safari jeeps designed to handle the rugged terrain of Kumana while providing you with the most comfortable ride possible.</p>
                     <p>Each vehicle features open sides for unobstructed 360-degree viewing and photography, ensuring you never miss a perfect shot of a leopard or a bird in flight.</p>
@@ -604,64 +592,11 @@
             </div>
         </section>
 
-        <!-- Verified Google Reviews -->
-        <section class="reviews-section" id="reviews">
-            <span id="testimonials" class="anchor-alias" aria-hidden="true"></span>
-            <div class="container">
-                <div class="section-header reveal">
-                    <h4 class="section-subtitle">Guest Ratings</h4>
-                    <h2 class="section-title">Rated 4.9 on Google</h2>
-                    <p class="section-desc">Our guests consistently rate us 5 stars. Read all reviews directly on Google.</p>
-                </div>
-
-                <div class="google-badge-card reveal">
-                    <div class="google-badge-brand">
-                        <svg class="google-icon-lg" viewBox="0 0 24 24" width="38" height="38" aria-label="Google logo">
-                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
-                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
-                            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
-                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-                        </svg>
-                        <div class="google-badge-text">
-                            <span class="google-title">Google Rating</span>
-                            <span class="google-verified-tag">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#34A853"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                Verified Reviews
-                            </span>
-                        </div>
-                    </div>
-                    <div class="google-badge-score">
-                        <span class="score-num">4.9</span>
-                        <div class="score-stars">
-                            <span class="stars-gold">★★★★★</span>
-                            <span class="score-count">Based on 138+ reviews</span>
-                        </div>
-                    </div>
-                    <div class="google-badge-cta">
-                        <a href="https://www.google.com/search?q=Kumana+Wings+%26+Roars+safari+reviews" target="_blank" rel="noopener noreferrer" class="btn btn-google">
-                            <svg class="google-icon-sm" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
-                                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
-                                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
-                                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-                            </svg>
-                            <span>See All Reviews on Google</span>
-                        </a>
-                        <a href="https://www.google.com/search?q=Kumana+Wings+%26+Roars+safari+reviews" target="_blank" rel="noopener noreferrer" class="btn btn-google btn-google-write">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                            <span>Write a Review</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
         <!-- Safari Packages & Itineraries -->
         <section class="safaris" id="safaris">
             <div class="container">
                 <div class="section-header reveal">
-                    <h4 class="section-subtitle">Our Packages</h4>
+                    <p class="section-subtitle">Our Packages</p>
                     <h2 class="section-title">Choose Your Adventure</h2>
                 </div>
                 <div class="safari-grid">
@@ -684,7 +619,8 @@
                                 <span class="card-meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> ~4–5 hours</span>
                                 <span class="card-meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg> Up to 6 guests</span>
                             </div>
-                            <p class="card-price">Inquire for rates <span class="card-price-note">· Price per jeep</span></p>
+                            <p class="card-price">From $[ADD_HALF_DAY_PRICE] per jeep <span class="card-price-note">· Up to 6 guests</span></p>
+                            <p class="card-price-inclusions">✓ Jeep, guide, refreshments &amp; pickup included &nbsp;·&nbsp; ✗ Park entrance fees &amp; tips not included</p>
                             <p>Explore the famous Kumana Villu swamp. Perfect for bird watching, spotting pelicans, painted storks, and rare migratory birds alongside other wildlife.</p>
                             <ul class="features">
                                 <li>Morning (5:30 AM) or evening (2:00 PM) session</li>
@@ -718,7 +654,8 @@
                                 <span class="card-meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Dawn to dusk (~10–12 hrs)</span>
                                 <span class="card-meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg> Up to 6 guests</span>
                             </div>
-                            <p class="card-price">Inquire for rates <span class="card-price-note">· Price per jeep</span></p>
+                            <p class="card-price">From $[ADD_FULL_DAY_PRICE] per jeep <span class="card-price-note">· Up to 6 guests</span></p>
+                            <p class="card-price-inclusions">✓ Jeep, guide, meals, refreshments &amp; pickup included &nbsp;·&nbsp; ✗ Park entrance fees &amp; tips not included</p>
                             <p>Dawn to dusk adventure deep into the wilderness. Track the majestic Sri Lankan leopard, elephants, and sloth bears in their natural habitat.</p>
                             <ul class="features">
                                 <li>Departure at 5:30 AM, return by dusk</li>
@@ -862,7 +799,7 @@
     <section class="faq" id="faq">
         <div class="container faq-container">
             <div class="faq-header reveal">
-                <h4 class="section-subtitle">Got Questions?</h4>
+                <p class="section-subtitle">Got Questions?</p>
                 <h2 class="section-title">Frequently Asked Questions</h2>
                 <p>Everything you need to know about planning your Kumana National Park safari tour.</p>
             </div>
@@ -1001,6 +938,35 @@
             </div>
         </div>
     </section>
+
+        <!-- Map & Location -->
+        <section class="map-section" id="location">
+            <div class="container">
+                <div class="section-header reveal" style="text-align:center;margin-bottom:2rem;">
+                    <p class="section-subtitle">Find Us</p>
+                    <h2 class="section-title">Getting to Kumana</h2>
+                    <p class="section-desc">We depart from Okanda Gate, the main entrance to Kumana National Park. We provide pickup from Arugam Bay, Pottuvil, and Panama — approximately 45–60 minutes from the gate.</p>
+                </div>
+                <div class="map-wrapper reveal">
+                    <!-- Embedded Google Map for Kumana Wings & Roars Safari -->
+                    <iframe
+                        src="https://maps.google.com/maps?q=6.7606483,81.8186593&amp;hl=en&amp;z=13&amp;output=embed"
+                        width="100%"
+                        height="400"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Kumana Wings &amp; Roars Safari Location on Google Maps">
+                    </iframe>
+                    <div style="text-align:center;margin-top:1.25rem;">
+                        <a href="https://maps.app.goo.gl/LNpf6c8pfcUCnL5X9" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            Open in Google Maps / Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Gallery Lightbox Modal -->
@@ -1047,9 +1013,7 @@
                     <a href="https://www.facebook.com/profile.php?id=61591779696576" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                     </a>
-                    <a href="#" aria-label="Find us on TripAdvisor" target="_blank" rel="noopener noreferrer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    </a>
+                    <!-- [ADD_TRIPADVISOR_URL] — replace href="#" with real TripAdvisor listing URL when available -->
                 </div>
             </div>
             <div class="footer-nav">
@@ -1059,7 +1023,6 @@
                     <a href="#why-kumana">Why Kumana</a>
                     <a href="#gallery">Gallery</a>
                     <a href="#fleet">Our Fleet</a>
-                    <a href="#reviews">Guest Reviews</a>
                     <a href="#faq">FAQ</a>
                     <a href="#about">About Kumana</a>
                     <a href="#booking">Book Safari</a>
@@ -1087,11 +1050,11 @@
         </div>
         <div class="footer-bottom">
             <div class="footer-bottom-links">
-                <a href="#">Privacy Policy</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
                 <span class="footer-sep">·</span>
-                <a href="#">Terms &amp; Conditions</a>
+                <a href="terms.html">Terms &amp; Conditions</a>
                 <span class="footer-sep">·</span>
-                <a href="#">Cancellation Policy</a>
+                <a href="cancellation-policy.html">Cancellation Policy</a>
             </div>
             <p>&copy; 2026 gokumana.com. All rights reserved.</p>
         </div>
@@ -1111,7 +1074,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
     <!-- Mobile Persistent CTA Bar -->
     <div class="mobile-cta-bar" id="mobileCta">
