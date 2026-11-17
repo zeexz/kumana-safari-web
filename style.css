@@ -2085,6 +2085,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .form-group input[type="date"],
+.form-group input[type="text"],
 .form-group select {
     width: 100%;
     padding: 0.85rem 1rem;
@@ -2107,14 +2108,17 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .form-group input[type="date"]:hover,
+.form-group input[type="text"]:hover,
 .form-group select:hover {
     border-color: var(--secondary);
 }
 
 .form-group input[type="date"]:focus,
+.form-group input[type="text"]:focus,
 .form-group select:focus {
     border-color: var(--secondary);
     box-shadow: 0 0 0 3px rgba(229, 169, 61, 0.15);
+    outline: none;
 }
 
 .radio-group {
@@ -2174,6 +2178,26 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .radio-label input[type="radio"]:checked + .radio-custom::after {
     background: var(--secondary);
+}
+
+.other-pickup-wrapper {
+    margin-top: 0.65rem;
+    animation: fadeInDown 0.25s ease-out;
+}
+
+.other-pickup-wrapper[hidden] {
+    display: none !important;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Booking Request Notes & Interactive Tags */

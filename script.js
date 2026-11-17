@@ -275,6 +275,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookingNotes = document.getElementById('booking-notes');
     const bookingNotesCounter = document.getElementById('bookingNotesCounter');
     const quickChips = document.querySelectorAll('#bookingQuickChips .quick-chip');
+    const pickupRadios = document.querySelectorAll('input[name="pickup"]');
+    const otherPickupWrapper = document.getElementById('otherPickupWrapper');
+    const otherPickupInput = document.getElementById('booking-other-pickup');
+
+    const updateOtherPickupVisibility = (focusInput = false) => {
+        if (!otherPickupWrapper) return;
+        const selectedRadio = document.querySelector('input[name="pickup"]:checked');
+        const isOther = selectedRadio && selectedRadio.value === 'Other';
+        if (isOther) {
+            otherPickupWrapper.removeAttribute('hidden');
+            if (otherPickupInput && focusInput) {
+                otherPickupInput.focus();
+            }
+        } else {
+            otherPickupWrapper.setAttribute('hidden', '');
+            if (otherPickupInput) {
+                otherPickupInput.value = '';
+            }
+        }
+    };
+
+    if (pickupRadios.length) {
+        pickupRadios.forEach(radio => {
+            radio.addEventListener('change', () => updateOtherPickupVisibility(true));
+        });
+        updateOtherPickupVisibility(false);
+    }
 
     if (bookingDateInput) {
         const today = new Date();
@@ -346,6 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const guests = formData.get('guests');
             const safari = formData.get('safari');
             const pickup = formData.get('pickup');
+            const otherPickup = (formData.get('other_pickup') || '').toString().trim();
             const notes = (formData.get('notes') || '').toString().trim();
 
             // --- Validation ---
@@ -401,13 +429,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 guestStr = `${guests} guests`;
             }
 
+            let pickupStr = pickup || 'Not specified';
+            if (pickup === 'Other') {
+                pickupStr = otherPickup ? `Other (${otherPickup})` : 'Other';
+            }
+
             const messageLines = [
                 `Hi, I'd like to book a private Kumana safari.`,
                 ``,
                 `📅 Date: ${dateStr}`,
                 `👥 Guests: ${guestStr}`,
                 `🌿 Safari: ${safari}`,
-                `📍 Pickup: ${pickup}`
+                `📍 Pickup: ${pickupStr}`
             ];
 
             if (notes) {
