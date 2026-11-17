@@ -275,9 +275,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookingNotes = document.getElementById('booking-notes');
     const bookingNotesCounter = document.getElementById('bookingNotesCounter');
     const quickChips = document.querySelectorAll('#bookingQuickChips .quick-chip');
+    const allRadioInputs = document.querySelectorAll('.radio-group input[type="radio"]');
     const pickupRadios = document.querySelectorAll('input[name="pickup"]');
     const otherPickupWrapper = document.getElementById('otherPickupWrapper');
     const otherPickupInput = document.getElementById('booking-other-pickup');
+
+    // Sync bold state on chosen radio labels, normal on unselected
+    const syncRadioLabels = () => {
+        allRadioInputs.forEach(radio => {
+            const label = radio.closest('.radio-label');
+            if (label) {
+                label.classList.toggle('is-checked', radio.checked);
+            }
+        });
+    };
+
+    if (allRadioInputs.length) {
+        allRadioInputs.forEach(radio => {
+            radio.addEventListener('change', syncRadioLabels);
+        });
+        syncRadioLabels();
+    }
 
     const updateOtherPickupVisibility = (focusInput = false) => {
         if (!otherPickupWrapper) return;
