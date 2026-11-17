@@ -2078,7 +2078,7 @@ input[type="number"]::-webkit-inner-spin-button {
     gap: 0.45rem;
 }
 
-.form-group label:first-child {
+.form-group > label:first-child {
     font-weight: 600;
     font-size: 0.92rem;
     color: var(--primary);
@@ -2132,7 +2132,7 @@ input[type="number"]::-webkit-inner-spin-button {
     align-items: center;
     gap: 0.45rem;
     font-size: 0.92rem;
-    font-weight: 400;
+    font-weight: 400 !important;
     color: var(--text-dark);
     cursor: pointer;
     padding: 0.55rem 1rem;
@@ -2182,7 +2182,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .radio-label:has(input[type="radio"]:checked),
 .radio-label.is-checked {
-    font-weight: 600;
+    font-weight: 600 !important;
     border-color: var(--secondary);
     background: rgba(229, 169, 61, 0.08);
 }
